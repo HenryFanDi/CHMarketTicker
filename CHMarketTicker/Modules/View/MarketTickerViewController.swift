@@ -15,7 +15,10 @@ class MarketTickerViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        CHAPIManager.shared.getMarketTickers()
+        CHAPIManager.shared.getMarketTickers(success: { (tickers) in
+            print(tickers)
+        }, failure: {
+        })
     }
     
     override func didReceiveMemoryWarning() {
