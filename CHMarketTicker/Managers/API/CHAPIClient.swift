@@ -21,7 +21,7 @@ enum HTTPStatusCode: Int {
 }
 
 protocol CHAPIProtocol {
-    func fetch(request: URLRequestConvertible, headers: [String: String]?, completion: @escaping (ResultType<Any>) -> Void)
+    func fetch(request: URLRequestConvertible, headers: [String: String]?, completion: @escaping (ResultType<Any>) -> ())
 }
 
 class CHAPIClient: CHAPIProtocol {
@@ -34,7 +34,7 @@ class CHAPIClient: CHAPIProtocol {
     
     // MARK: - Public
     
-    func fetch(request: URLRequestConvertible, headers: [String: String]?, completion: @escaping (ResultType<Any>) -> Void) {
+    func fetch(request: URLRequestConvertible, headers: [String: String]?, completion: @escaping (ResultType<Any>) -> ()) {
         sessionManager.session.getAllTasks { (task) in
             task.forEach{ $0.cancel() }
         }
@@ -51,9 +51,8 @@ class CHAPIClient: CHAPIProtocol {
                         completion(ResultType.successWithResponseValue(responseValue: responseValue))
                     }
                     break
-                case HTTPStatusCode.badRequest.rawValue:
-                    break
-                case HTTPStatusCode.notFound.rawValue:
+                case HTTPStatusCode.badRequest.rawValue, HTTPStatusCode.notFound.rawValue:
+                    completion(ResultType.failureWithErrorCode(errorCode: statusCode))
                     break
                 default:
                     break

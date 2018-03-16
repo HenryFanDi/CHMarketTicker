@@ -8,6 +8,10 @@
 
 import UIKit
 
+protocol ManagerProtocol {
+    func initWithResponseObject(responseObject: Any) -> Any?
+}
+
 class CHAPIManager: NSObject {
     
     // MARK: - Singleton Pattern
@@ -18,11 +22,14 @@ class CHAPIManager: NSObject {
     
     // GET
     
-    func getMarketTickers() {
+    func getMarketTickers(success: @escaping (_ tickers: [Ticker]) -> (), failure: @escaping () -> ()) {
         CHAPIClient.shared.fetch(request: CHAPIRouter.getMarketTickers(), headers: [:]) { [unowned self] (result) in
             self.resultHandler(result: result, completion: { (responseValue) in
-                if let response = responseValue {
-                    print(response)
+                if let response = responseValue,
+                    let tickers = TickerManager().initWithResponseObject(responseObject: response) as? [Ticker] {
+                    success(tickers)
+                } else {
+                    failure()
                 }
             })
         }
@@ -30,13 +37,14 @@ class CHAPIManager: NSObject {
     
     // MARK: - Private
     
-    private func resultHandler(result: ResultType<Any>, completion: @escaping (_ responseValue: Any?) -> Void) {
+    private func resultHandler(result: ResultType<Any>, completion: @escaping (_ responseValue: Any?) -> ()) {
         switch result {
         case .successWithResponseValue(let responseValue):
             completion(responseValue)
             break
         case .failureWithErrorCode(let errorCode):
             print("errorCode : \(errorCode)")
+            completion(nil)
             break
         }
     }
