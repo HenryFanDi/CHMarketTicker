@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  MarketTickerViewController.swift
 //  CHMarketTicker
 //
 //  Created by HenryFan on 16/3/2018.
@@ -8,18 +8,16 @@
 
 import UIKit
 
-class ViewController: UIViewController {
-
+class MarketTickerViewController: UIViewController {
+    
+    // MARK: - Lifecycle
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
-
-
+    
 }
-

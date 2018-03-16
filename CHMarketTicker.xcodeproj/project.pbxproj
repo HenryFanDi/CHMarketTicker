@@ -8,13 +8,14 @@
 
 /* Begin PBXBuildFile section */
 		D8BFC72E205BEE5F00A144D4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8BFC72D205BEE5F00A144D4 /* AppDelegate.swift */; };
-		D8BFC730205BEE5F00A144D4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8BFC72F205BEE5F00A144D4 /* ViewController.swift */; };
-		D8BFC733205BEE5F00A144D4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D8BFC731205BEE5F00A144D4 /* Main.storyboard */; };
 		D8BFC736205BEE5F00A144D4 /* CHMarketTicker.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D8BFC734205BEE5F00A144D4 /* CHMarketTicker.xcdatamodeld */; };
 		D8BFC738205BEE5F00A144D4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D8BFC737205BEE5F00A144D4 /* Assets.xcassets */; };
-		D8BFC73B205BEE5F00A144D4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D8BFC739205BEE5F00A144D4 /* LaunchScreen.storyboard */; };
 		D8BFC746205BEE5F00A144D4 /* CHMarketTickerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8BFC745205BEE5F00A144D4 /* CHMarketTickerTests.swift */; };
 		D8BFC751205BEE5F00A144D4 /* CHMarketTickerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8BFC750205BEE5F00A144D4 /* CHMarketTickerUITests.swift */; };
+		D8BFC76A205BF28A00A144D4 /* MarketTickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8BFC768205BF28A00A144D4 /* MarketTickerViewController.swift */; };
+		D8BFC76B205BF28A00A144D4 /* MarketTickerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D8BFC769205BF28A00A144D4 /* MarketTickerViewController.xib */; };
+		D8BFC76F205BF31700A144D4 /* CHMarketTickerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8BFC76E205BF31700A144D4 /* CHMarketTickerExtensions.swift */; };
+		D8BFC771205BF3A400A144D4 /* MarketTickerBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8BFC770205BF3A400A144D4 /* MarketTickerBuilder.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,11 +38,8 @@
 /* Begin PBXFileReference section */
 		D8BFC72A205BEE5F00A144D4 /* CHMarketTicker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CHMarketTicker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D8BFC72D205BEE5F00A144D4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		D8BFC72F205BEE5F00A144D4 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		D8BFC732205BEE5F00A144D4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		D8BFC735205BEE5F00A144D4 /* CHMarketTicker.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CHMarketTicker.xcdatamodel; sourceTree = "<group>"; };
 		D8BFC737205BEE5F00A144D4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		D8BFC73A205BEE5F00A144D4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D8BFC73C205BEE5F00A144D4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D8BFC741205BEE5F00A144D4 /* CHMarketTickerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CHMarketTickerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D8BFC745205BEE5F00A144D4 /* CHMarketTickerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CHMarketTickerTests.swift; sourceTree = "<group>"; };
@@ -49,6 +47,10 @@
 		D8BFC74C205BEE5F00A144D4 /* CHMarketTickerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CHMarketTickerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D8BFC750205BEE5F00A144D4 /* CHMarketTickerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CHMarketTickerUITests.swift; sourceTree = "<group>"; };
 		D8BFC752205BEE5F00A144D4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D8BFC768205BF28A00A144D4 /* MarketTickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarketTickerViewController.swift; sourceTree = "<group>"; };
+		D8BFC769205BF28A00A144D4 /* MarketTickerViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MarketTickerViewController.xib; sourceTree = "<group>"; };
+		D8BFC76E205BF31700A144D4 /* CHMarketTickerExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CHMarketTickerExtensions.swift; sourceTree = "<group>"; };
+		D8BFC770205BF3A400A144D4 /* MarketTickerBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarketTickerBuilder.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,11 +101,10 @@
 		D8BFC72C205BEE5F00A144D4 /* CHMarketTicker */ = {
 			isa = PBXGroup;
 			children = (
-				D8BFC72D205BEE5F00A144D4 /* AppDelegate.swift */,
-				D8BFC72F205BEE5F00A144D4 /* ViewController.swift */,
-				D8BFC731205BEE5F00A144D4 /* Main.storyboard */,
+				D8BFC765205BF1EE00A144D4 /* AppDelegate */,
+				D8BFC76C205BF2E500A144D4 /* General */,
+				D8BFC75E205BF19200A144D4 /* Modules */,
 				D8BFC737205BEE5F00A144D4 /* Assets.xcassets */,
-				D8BFC739205BEE5F00A144D4 /* LaunchScreen.storyboard */,
 				D8BFC73C205BEE5F00A144D4 /* Info.plist */,
 				D8BFC734205BEE5F00A144D4 /* CHMarketTicker.xcdatamodeld */,
 			);
@@ -126,6 +127,88 @@
 				D8BFC752205BEE5F00A144D4 /* Info.plist */,
 			);
 			path = CHMarketTickerUITests;
+			sourceTree = "<group>";
+		};
+		D8BFC75E205BF19200A144D4 /* Modules */ = {
+			isa = PBXGroup;
+			children = (
+				D8BFC761205BF1B100A144D4 /* ViewModel */,
+				D8BFC760205BF1AA00A144D4 /* Router */,
+				D8BFC75F205BF19F00A144D4 /* View */,
+				D8BFC762205BF1C500A144D4 /* Interactor */,
+				D8BFC763205BF1CE00A144D4 /* Presenter */,
+				D8BFC764205BF1D400A144D4 /* Builder */,
+			);
+			path = Modules;
+			sourceTree = "<group>";
+		};
+		D8BFC75F205BF19F00A144D4 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				D8BFC768205BF28A00A144D4 /* MarketTickerViewController.swift */,
+				D8BFC769205BF28A00A144D4 /* MarketTickerViewController.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		D8BFC760205BF1AA00A144D4 /* Router */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Router;
+			sourceTree = "<group>";
+		};
+		D8BFC761205BF1B100A144D4 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		D8BFC762205BF1C500A144D4 /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Interactor;
+			sourceTree = "<group>";
+		};
+		D8BFC763205BF1CE00A144D4 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		D8BFC764205BF1D400A144D4 /* Builder */ = {
+			isa = PBXGroup;
+			children = (
+				D8BFC770205BF3A400A144D4 /* MarketTickerBuilder.swift */,
+			);
+			path = Builder;
+			sourceTree = "<group>";
+		};
+		D8BFC765205BF1EE00A144D4 /* AppDelegate */ = {
+			isa = PBXGroup;
+			children = (
+				D8BFC72D205BEE5F00A144D4 /* AppDelegate.swift */,
+			);
+			path = AppDelegate;
+			sourceTree = "<group>";
+		};
+		D8BFC76C205BF2E500A144D4 /* General */ = {
+			isa = PBXGroup;
+			children = (
+				D8BFC76D205BF2F400A144D4 /* Extensions */,
+			);
+			path = General;
+			sourceTree = "<group>";
+		};
+		D8BFC76D205BF2F400A144D4 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				D8BFC76E205BF31700A144D4 /* CHMarketTickerExtensions.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -235,9 +318,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D8BFC73B205BEE5F00A144D4 /* LaunchScreen.storyboard in Resources */,
+				D8BFC76B205BF28A00A144D4 /* MarketTickerViewController.xib in Resources */,
 				D8BFC738205BEE5F00A144D4 /* Assets.xcassets in Resources */,
-				D8BFC733205BEE5F00A144D4 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -263,8 +345,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				D8BFC736205BEE5F00A144D4 /* CHMarketTicker.xcdatamodeld in Sources */,
-				D8BFC730205BEE5F00A144D4 /* ViewController.swift in Sources */,
 				D8BFC72E205BEE5F00A144D4 /* AppDelegate.swift in Sources */,
+				D8BFC76F205BF31700A144D4 /* CHMarketTickerExtensions.swift in Sources */,
+				D8BFC771205BF3A400A144D4 /* MarketTickerBuilder.swift in Sources */,
+				D8BFC76A205BF28A00A144D4 /* MarketTickerViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -298,25 +382,6 @@
 			targetProxy = D8BFC74D205BEE5F00A144D4 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
-
-/* Begin PBXVariantGroup section */
-		D8BFC731205BEE5F00A144D4 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				D8BFC732205BEE5F00A144D4 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		D8BFC739205BEE5F00A144D4 /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				D8BFC73A205BEE5F00A144D4 /* Base */,
-			);
-			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		D8BFC753205BEE5F00A144D4 /* Debug */ = {
@@ -430,8 +495,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = CHMarketTicker/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.HenryFanDi.CHMarketTicker;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -444,8 +511,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = CHMarketTicker/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.HenryFanDi.CHMarketTicker;
 				PRODUCT_NAME = "$(TARGET_NAME)";
