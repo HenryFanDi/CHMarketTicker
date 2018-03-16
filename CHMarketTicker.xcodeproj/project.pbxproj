@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C2CF764070ED20B0E8787535 /* Pods_CHMarketTicker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 61236567B051D4923AB3C61F /* Pods_CHMarketTicker.framework */; };
+		D85F1E06205BFA2B00262F22 /* CHAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = D85F1E05205BFA2B00262F22 /* CHAPIClient.swift */; };
 		D8BFC72E205BEE5F00A144D4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8BFC72D205BEE5F00A144D4 /* AppDelegate.swift */; };
 		D8BFC736205BEE5F00A144D4 /* CHMarketTicker.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D8BFC734205BEE5F00A144D4 /* CHMarketTicker.xcdatamodeld */; };
 		D8BFC738205BEE5F00A144D4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D8BFC737205BEE5F00A144D4 /* Assets.xcassets */; };
@@ -16,6 +18,7 @@
 		D8BFC76B205BF28A00A144D4 /* MarketTickerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D8BFC769205BF28A00A144D4 /* MarketTickerViewController.xib */; };
 		D8BFC76F205BF31700A144D4 /* CHMarketTickerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8BFC76E205BF31700A144D4 /* CHMarketTickerExtensions.swift */; };
 		D8BFC771205BF3A400A144D4 /* MarketTickerBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8BFC770205BF3A400A144D4 /* MarketTickerBuilder.swift */; };
+		D8BFC774205BF64E00A144D4 /* CHAPIRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8BFC773205BF64E00A144D4 /* CHAPIRouter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +39,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2AFD372892563F8B33AEA9F2 /* Pods-CHMarketTicker.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CHMarketTicker.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CHMarketTicker/Pods-CHMarketTicker.debug.xcconfig"; sourceTree = "<group>"; };
+		61236567B051D4923AB3C61F /* Pods_CHMarketTicker.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CHMarketTicker.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		84871DF1C6D35AA2F8CF7636 /* Pods-CHMarketTicker.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CHMarketTicker.release.xcconfig"; path = "Pods/Target Support Files/Pods-CHMarketTicker/Pods-CHMarketTicker.release.xcconfig"; sourceTree = "<group>"; };
+		D85F1E05205BFA2B00262F22 /* CHAPIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CHAPIClient.swift; sourceTree = "<group>"; };
 		D8BFC72A205BEE5F00A144D4 /* CHMarketTicker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CHMarketTicker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D8BFC72D205BEE5F00A144D4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D8BFC735205BEE5F00A144D4 /* CHMarketTicker.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CHMarketTicker.xcdatamodel; sourceTree = "<group>"; };
@@ -51,6 +58,7 @@
 		D8BFC769205BF28A00A144D4 /* MarketTickerViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MarketTickerViewController.xib; sourceTree = "<group>"; };
 		D8BFC76E205BF31700A144D4 /* CHMarketTickerExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CHMarketTickerExtensions.swift; sourceTree = "<group>"; };
 		D8BFC770205BF3A400A144D4 /* MarketTickerBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarketTickerBuilder.swift; sourceTree = "<group>"; };
+		D8BFC773205BF64E00A144D4 /* CHAPIRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CHAPIRouter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +66,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C2CF764070ED20B0E8787535 /* Pods_CHMarketTicker.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -78,6 +87,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6B681738C1BDB5F26C67041C /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				2AFD372892563F8B33AEA9F2 /* Pods-CHMarketTicker.debug.xcconfig */,
+				84871DF1C6D35AA2F8CF7636 /* Pods-CHMarketTicker.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		BE3221E996C00DFF6437777B /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				61236567B051D4923AB3C61F /* Pods_CHMarketTicker.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		D8BFC721205BEE5F00A144D4 = {
 			isa = PBXGroup;
 			children = (
@@ -85,6 +111,8 @@
 				D8BFC744205BEE5F00A144D4 /* CHMarketTickerTests */,
 				D8BFC74F205BEE5F00A144D4 /* CHMarketTickerUITests */,
 				D8BFC72B205BEE5F00A144D4 /* Products */,
+				6B681738C1BDB5F26C67041C /* Pods */,
+				BE3221E996C00DFF6437777B /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -103,6 +131,7 @@
 			children = (
 				D8BFC765205BF1EE00A144D4 /* AppDelegate */,
 				D8BFC76C205BF2E500A144D4 /* General */,
+				D8BFC772205BF62800A144D4 /* Managers */,
 				D8BFC75E205BF19200A144D4 /* Modules */,
 				D8BFC737205BEE5F00A144D4 /* Assets.xcassets */,
 				D8BFC73C205BEE5F00A144D4 /* Info.plist */,
@@ -211,6 +240,15 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
+		D8BFC772205BF62800A144D4 /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				D8BFC773205BF64E00A144D4 /* CHAPIRouter.swift */,
+				D85F1E05205BFA2B00262F22 /* CHAPIClient.swift */,
+			);
+			path = Managers;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -218,9 +256,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = D8BFC755205BEE5F00A144D4 /* Build configuration list for PBXNativeTarget "CHMarketTicker" */;
 			buildPhases = (
+				090AB7FAA63CC4FFE866A1B1 /* [CP] Check Pods Manifest.lock */,
 				D8BFC726205BEE5F00A144D4 /* Sources */,
 				D8BFC727205BEE5F00A144D4 /* Frameworks */,
 				D8BFC728205BEE5F00A144D4 /* Resources */,
+				00D4AC79A6A3BDA9EC045420 /* [CP] Embed Pods Frameworks */,
+				7E0FAD42598CC01E98BF0D7B /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -339,14 +380,70 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		00D4AC79A6A3BDA9EC045420 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-CHMarketTicker/Pods-CHMarketTicker-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-CHMarketTicker/Pods-CHMarketTicker-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		090AB7FAA63CC4FFE866A1B1 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-CHMarketTicker-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		7E0FAD42598CC01E98BF0D7B /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-CHMarketTicker/Pods-CHMarketTicker-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		D8BFC726205BEE5F00A144D4 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D8BFC774205BF64E00A144D4 /* CHAPIRouter.swift in Sources */,
 				D8BFC736205BEE5F00A144D4 /* CHMarketTicker.xcdatamodeld in Sources */,
 				D8BFC72E205BEE5F00A144D4 /* AppDelegate.swift in Sources */,
 				D8BFC76F205BF31700A144D4 /* CHMarketTickerExtensions.swift in Sources */,
+				D85F1E06205BFA2B00262F22 /* CHAPIClient.swift in Sources */,
 				D8BFC771205BF3A400A144D4 /* MarketTickerBuilder.swift in Sources */,
 				D8BFC76A205BF28A00A144D4 /* MarketTickerViewController.swift in Sources */,
 			);
@@ -493,6 +590,7 @@
 		};
 		D8BFC756205BEE5F00A144D4 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2AFD372892563F8B33AEA9F2 /* Pods-CHMarketTicker.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -509,6 +607,7 @@
 		};
 		D8BFC757205BEE5F00A144D4 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 84871DF1C6D35AA2F8CF7636 /* Pods-CHMarketTicker.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
