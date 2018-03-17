@@ -20,6 +20,40 @@ extension UIView {
         return String(describing: self)
     }
     
+    class func loadFromNib(ownerOrNil: AnyObject?) -> UIView? {
+        let nibObjects = nib.instantiate(withOwner: ownerOrNil, options: nil)
+        return nibObjects[0] as? UIView
+    }
+    
+    class func addSubViewConstraints(targetView: UIView, subView: UIView) {
+        for subview in targetView.subviews {
+            subview.removeFromSuperview()
+        }
+        
+        targetView.addSubview(subView)
+        subView.translatesAutoresizingMaskIntoConstraints = false
+        
+        let metrics = [
+            "padding": 0
+        ]
+        
+        let views: [String: UIView] = [
+            "subView": subView
+        ]
+        
+        var constraints = NSLayoutConstraint.constraints(withVisualFormat: "H:|-padding-[subView]-padding-|",
+                                                         options: NSLayoutFormatOptions(),
+                                                         metrics: metrics,
+                                                         views: views)
+        targetView.addConstraints(constraints)
+        
+        constraints = NSLayoutConstraint.constraints(withVisualFormat: "V:|-padding-[subView]-padding-|",
+                                                     options: NSLayoutFormatOptions(),
+                                                     metrics: metrics,
+                                                     views: views)
+        targetView.addConstraints(constraints)
+    }
+    
 }
 
 // MARK: - UIViewController

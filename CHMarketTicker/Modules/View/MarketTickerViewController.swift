@@ -8,21 +8,46 @@
 
 import UIKit
 
+protocol MarketTickerScreen: class {
+    func configureMarketTicker(viewModel: MarketTickerViewControllerViewModel)
+}
+
 class MarketTickerViewController: UIViewController {
+    
+    var presenter: MarketTickerPresenter!
+    
+    fileprivate var viewModel: MarketTickerViewControllerViewModel!
+    
+    @IBOutlet private weak var segmentBackgroundView: UIView!
+    @IBOutlet private weak var pageViewControllerBackgroundView: UIView!
     
     // MARK: - Lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        CHAPIManager.shared.getMarketTickers(success: { (tickers) in
-            print(tickers)
-        }, failure: {
-        })
+        presenter.loadMarketTicker()
+        
+        configureLayout()
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
+    }
+    
+    // MARK: - Private
+    
+    private func configureLayout() {
+    }
+    
+}
+
+// MARK: - MarketTickerScreen
+
+extension MarketTickerViewController: MarketTickerScreen {
+    
+    func configureMarketTicker(viewModel: MarketTickerViewControllerViewModel) {
+        self.viewModel = viewModel
     }
     
 }

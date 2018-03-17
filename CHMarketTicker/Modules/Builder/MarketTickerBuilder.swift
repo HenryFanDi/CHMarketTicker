@@ -14,8 +14,10 @@ protocol MarketTickerBuilder: class {
 class MarketTickerDefaultBuilder: MarketTickerBuilder {
     
     func buildMarketTickerModule() -> MarketTickerViewController {
-        let view = MarketTickerViewController(nibName: MarketTickerViewController.identifier, bundle: nil)
-        return view
+        let viewController = MarketTickerViewController(nibName: MarketTickerViewController.identifier, bundle: nil)
+        let presenter = MarketTickerDefaultPresenter(view: viewController)
+        viewController.presenter = presenter
+        return viewController
     }
     
 }
