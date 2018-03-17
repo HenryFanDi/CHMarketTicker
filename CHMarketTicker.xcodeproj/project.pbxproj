@@ -22,6 +22,9 @@
 		D85F1E21205CB49000262F22 /* MarketTickerPageBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = D85F1E20205CB49000262F22 /* MarketTickerPageBuilder.swift */; };
 		D85F1E26205CB5F400262F22 /* MarketTickerPagePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D85F1E25205CB5F400262F22 /* MarketTickerPagePresenter.swift */; };
 		D85F1E28205CB6EE00262F22 /* MarketTickerPageViewControllerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D85F1E27205CB6EE00262F22 /* MarketTickerPageViewControllerViewModel.swift */; };
+		D85F1E2F205CBC6400262F22 /* MarketTickerPageContentBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = D85F1E2E205CBC6400262F22 /* MarketTickerPageContentBuilder.swift */; };
+		D85F1E31205CBD5D00262F22 /* MarketTickerPageContentViewControllerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D85F1E30205CBD5D00262F22 /* MarketTickerPageContentViewControllerViewModel.swift */; };
+		D85F1E33205CBE1800262F22 /* MarketTickerPageContentPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D85F1E32205CBE1800262F22 /* MarketTickerPageContentPresenter.swift */; };
 		D8BFC72E205BEE5F00A144D4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8BFC72D205BEE5F00A144D4 /* AppDelegate.swift */; };
 		D8BFC736205BEE5F00A144D4 /* CHMarketTicker.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D8BFC734205BEE5F00A144D4 /* CHMarketTicker.xcdatamodeld */; };
 		D8BFC738205BEE5F00A144D4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D8BFC737205BEE5F00A144D4 /* Assets.xcassets */; };
@@ -69,6 +72,9 @@
 		D85F1E20205CB49000262F22 /* MarketTickerPageBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarketTickerPageBuilder.swift; sourceTree = "<group>"; };
 		D85F1E25205CB5F400262F22 /* MarketTickerPagePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarketTickerPagePresenter.swift; sourceTree = "<group>"; };
 		D85F1E27205CB6EE00262F22 /* MarketTickerPageViewControllerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarketTickerPageViewControllerViewModel.swift; sourceTree = "<group>"; };
+		D85F1E2E205CBC6400262F22 /* MarketTickerPageContentBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarketTickerPageContentBuilder.swift; sourceTree = "<group>"; };
+		D85F1E30205CBD5D00262F22 /* MarketTickerPageContentViewControllerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarketTickerPageContentViewControllerViewModel.swift; sourceTree = "<group>"; };
+		D85F1E32205CBE1800262F22 /* MarketTickerPageContentPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarketTickerPageContentPresenter.swift; sourceTree = "<group>"; };
 		D8BFC72A205BEE5F00A144D4 /* CHMarketTicker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CHMarketTicker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D8BFC72D205BEE5F00A144D4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D8BFC735205BEE5F00A144D4 /* CHMarketTicker.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CHMarketTicker.xcdatamodel; sourceTree = "<group>"; };
@@ -206,6 +212,50 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
+		D85F1E29205CBC1600262F22 /* MarketTickerPageContent */ = {
+			isa = PBXGroup;
+			children = (
+				D85F1E2A205CBC2700262F22 /* Builder */,
+				D85F1E2C205CBC3300262F22 /* View */,
+				D85F1E2B205CBC2D00262F22 /* ViewModel */,
+				D85F1E2D205CBC3800262F22 /* Presenter */,
+			);
+			path = MarketTickerPageContent;
+			sourceTree = "<group>";
+		};
+		D85F1E2A205CBC2700262F22 /* Builder */ = {
+			isa = PBXGroup;
+			children = (
+				D85F1E2E205CBC6400262F22 /* MarketTickerPageContentBuilder.swift */,
+			);
+			path = Builder;
+			sourceTree = "<group>";
+		};
+		D85F1E2B205CBC2D00262F22 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				D85F1E30205CBD5D00262F22 /* MarketTickerPageContentViewControllerViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		D85F1E2C205CBC3300262F22 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				D85F1E11205C950700262F22 /* MarketTickerPageContentViewController.swift */,
+				D85F1E12205C950700262F22 /* MarketTickerPageContentViewController.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		D85F1E2D205CBC3800262F22 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				D85F1E32205CBE1800262F22 /* MarketTickerPageContentPresenter.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
 		D8BFC721205BEE5F00A144D4 = {
 			isa = PBXGroup;
 			children = (
@@ -265,6 +315,7 @@
 			children = (
 				D85F1E1D205CB41B00262F22 /* MarketTicker */,
 				D85F1E1E205CB43200262F22 /* MarketTickerPage */,
+				D85F1E29205CBC1600262F22 /* MarketTickerPageContent */,
 			);
 			path = Modules;
 			sourceTree = "<group>";
@@ -274,8 +325,6 @@
 			children = (
 				D8BFC768205BF28A00A144D4 /* MarketTickerViewController.swift */,
 				D8BFC769205BF28A00A144D4 /* MarketTickerViewController.xib */,
-				D85F1E11205C950700262F22 /* MarketTickerPageContentViewController.swift */,
-				D85F1E12205C950700262F22 /* MarketTickerPageContentViewController.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -548,8 +597,10 @@
 				D85F1E0D205C076C00262F22 /* TickerManager.swift in Sources */,
 				D85F1E21205CB49000262F22 /* MarketTickerPageBuilder.swift in Sources */,
 				D8BFC736205BEE5F00A144D4 /* CHMarketTicker.xcdatamodeld in Sources */,
+				D85F1E31205CBD5D00262F22 /* MarketTickerPageContentViewControllerViewModel.swift in Sources */,
 				D8BFC72E205BEE5F00A144D4 /* AppDelegate.swift in Sources */,
 				D85F1E1C205C9B1B00262F22 /* MarketTickerPresenter.swift in Sources */,
+				D85F1E33205CBE1800262F22 /* MarketTickerPageContentPresenter.swift in Sources */,
 				D8BFC76F205BF31700A144D4 /* CHMarketTickerExtensions.swift in Sources */,
 				D85F1E0A205C03A700262F22 /* Ticker.swift in Sources */,
 				D85F1E26205CB5F400262F22 /* MarketTickerPagePresenter.swift in Sources */,
@@ -558,6 +609,7 @@
 				D85F1E08205BFE8B00262F22 /* CHAPIManager.swift in Sources */,
 				D85F1E28205CB6EE00262F22 /* MarketTickerPageViewControllerViewModel.swift in Sources */,
 				D85F1E17205C979600262F22 /* MarketTickerPageViewController.swift in Sources */,
+				D85F1E2F205CBC6400262F22 /* MarketTickerPageContentBuilder.swift in Sources */,
 				D85F1E10205C93D500262F22 /* CHNavigationController.swift in Sources */,
 				D8BFC771205BF3A400A144D4 /* MarketTickerBuilder.swift in Sources */,
 				D8BFC76A205BF28A00A144D4 /* MarketTickerViewController.swift in Sources */,
