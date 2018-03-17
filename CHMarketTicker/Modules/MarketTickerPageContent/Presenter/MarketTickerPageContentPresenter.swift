@@ -15,17 +15,20 @@ protocol MarketTickerPageContentPresenter: class {
 class MarketTickerPageContentDefaultPresenter: MarketTickerPageContentPresenter {
     
     private weak var view: MarketTickerPageContentScreen?
+    private var interactor: MarketTickerPageContentInteractor
     
     // MARK: - Initialize
     
-    required init(view: MarketTickerPageContentScreen) {
+    required init(view: MarketTickerPageContentScreen, interactor: MarketTickerPageContentInteractor) {
         self.view = view
+        self.interactor = interactor
     }
     
     // MARK: - MarketTickerPageContentPresenter
     
     func loadMarketTickerPageContent() {
-        let viewModel = MarketTickerPageContentViewControllerViewModelBuilder().buildViewModel()
+        let tickersOfCurrency = interactor.getTickersOfCurrency()
+        let viewModel = MarketTickerPageContentViewControllerViewModelBuilder().buildViewModel(tickersOfCurrency: tickersOfCurrency)
         view?.configureMarketTickerPageContent(viewModel: viewModel)
     }
     
