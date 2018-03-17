@@ -42,9 +42,6 @@
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="+100.00 %" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PZM-8e-hkp" userLabel="Fluctuation Percentage Label">
                         <rect key="frame" x="243" y="28" width="61" height="20"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstAttribute="height" constant="20" id="lki-X7-7ob"/>
-                        </constraints>
                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="12"/>
                         <color key="textColor" red="0.12476690415751826" green="0.89452302217483526" blue="0.5359056673818916" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
@@ -52,17 +49,14 @@
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="COB-ETH" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J4O-20-ueY" userLabel="Trading Pair Label">
                         <rect key="frame" x="16" y="28" width="217" height="20"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstAttribute="height" constant="20" id="zYL-Wc-z2v"/>
-                        </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
                 <constraints>
-                    <constraint firstAttribute="bottom" secondItem="PZM-8e-hkp" secondAttribute="bottom" constant="8" id="42u-AF-Kbd"/>
                     <constraint firstItem="J4O-20-ueY" firstAttribute="top" secondItem="UsU-kK-EqI" secondAttribute="bottom" id="ADe-0f-2cf"/>
+                    <constraint firstAttribute="bottom" secondItem="PZM-8e-hkp" secondAttribute="bottom" constant="8" id="CaT-Bs-xbi"/>
                     <constraint firstItem="PZM-8e-hkp" firstAttribute="leading" secondItem="J4O-20-ueY" secondAttribute="trailing" constant="10" id="Dyk-qv-wEs"/>
                     <constraint firstItem="J4O-20-ueY" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="F1U-lV-cfU"/>
                     <constraint firstItem="kuP-Ph-NxC" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="GXY-nd-89v"/>

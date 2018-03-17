@@ -11,12 +11,18 @@ import UIKit
 struct MarketTickerPageContentViewControllerViewModel {
     private(set) var pageIndex: Int
     private(set) var tickersOfCurrency: [Ticker]
+    private(set) var cellViewModels: [MarketTickerPageContentTableViewCellViewModel]
 }
 
 class MarketTickerPageContentViewControllerViewModelBuilder {
     
     func buildViewModel(pageIndex: Int, tickersOfCurrency: [Ticker]) -> MarketTickerPageContentViewControllerViewModel {
-        return MarketTickerPageContentViewControllerViewModel(pageIndex: pageIndex, tickersOfCurrency: tickersOfCurrency)
+        var cellViewModels = [MarketTickerPageContentTableViewCellViewModel]()
+        tickersOfCurrency.forEach { (ticker) in
+            let cellViewModel = MarketTickerPageContentTableViewCellViewModelBuilder().buildViewModel(ticker: ticker)
+            cellViewModels.append(cellViewModel)
+        }
+        return MarketTickerPageContentViewControllerViewModel(pageIndex: pageIndex, tickersOfCurrency: tickersOfCurrency, cellViewModels: cellViewModels)
     }
     
 }

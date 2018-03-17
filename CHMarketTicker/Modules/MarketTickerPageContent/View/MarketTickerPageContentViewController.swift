@@ -26,10 +26,20 @@ class MarketTickerPageContentViewController: UIViewController {
         super.viewDidLoad()
         
         presenter.loadMarketTickerPageContent()
+        
+        configureLayout()
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
+    }
+    
+    // MARK: - Private
+    
+    private func configureLayout() {
+        tableView.register(MarketTickerPageContentTableViewCell.nib, forCellReuseIdentifier: MarketTickerPageContentTableViewCell.identifier)
+        tableView.estimatedRowHeight = 60.0
+        tableView.rowHeight = UITableViewAutomaticDimension
     }
     
 }
@@ -40,6 +50,32 @@ extension MarketTickerPageContentViewController: MarketTickerPageContentScreen {
     
     func configureMarketTickerPageContent(viewModel: MarketTickerPageContentViewControllerViewModel) {
         self.viewModel = viewModel
+    }
+    
+}
+
+// MARK: - UITableViewDelegate
+
+extension MarketTickerPageContentViewController: UITableViewDelegate {
+    
+}
+
+// MARK: - UITableViewDataSource
+
+extension MarketTickerPageContentViewController: UITableViewDataSource {
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return viewModel.cellViewModels.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let marketTickerPageContentTableViewCell = tableView.dequeueReusableCell(withIdentifier: MarketTickerPageContentTableViewCell.identifier, for: indexPath) as! MarketTickerPageContentTableViewCell
+        marketTickerPageContentTableViewCell.configure(viewModel: viewModel.cellViewModels[indexPath.row])
+        return marketTickerPageContentTableViewCell
     }
     
 }
