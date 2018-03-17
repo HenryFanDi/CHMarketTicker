@@ -28,7 +28,7 @@ class MarketTickerPageContentDefaultPresenter: MarketTickerPageContentPresenter 
     
     func loadMarketTickerPageContent() {
         let pageIndex = interactor.getPageIndex()
-        let tickersOfCurrency = interactor.getTickersOfCurrency()
+        let tickersOfCurrency = interactor.getTickersOfPairCurrency()
         let viewModel = MarketTickerPageContentViewControllerViewModelBuilder().buildViewModel(pageIndex: pageIndex, tickersOfCurrency: tickersOfCurrency)
         view?.configureMarketTickerPageContent(viewModel: viewModel)
     }

@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="MarketTickerPageContentTableViewCell" id="KGk-i7-Jjw" customClass="MarketTickerPageContentTableViewCell" customModule="CHMarketTicker" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="57"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="56.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="COB" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UsU-kK-EqI" userLabel="Trading Title Label">
+                        <rect key="frame" x="16" y="8" width="207" height="20"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="20" id="JGD-2w-eDt"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="16"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="0.000155" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kuP-Ph-NxC" userLabel="Last Trading Price Label">
+                        <rect key="frame" x="233" y="8" width="71" height="20"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="20" id="H2K-3t-YX1"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="16"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="+100.00 %" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PZM-8e-hkp" userLabel="Fluctuation Percentage Label">
+                        <rect key="frame" x="243" y="28" width="61" height="20"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="20" id="lki-X7-7ob"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="12"/>
+                        <color key="textColor" red="0.12476690415751826" green="0.89452302217483526" blue="0.5359056673818916" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="COB-ETH" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J4O-20-ueY" userLabel="Trading Pair Label">
+                        <rect key="frame" x="16" y="28" width="217" height="20"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="20" id="zYL-Wc-z2v"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="bottom" secondItem="PZM-8e-hkp" secondAttribute="bottom" constant="8" id="42u-AF-Kbd"/>
+                    <constraint firstItem="J4O-20-ueY" firstAttribute="top" secondItem="UsU-kK-EqI" secondAttribute="bottom" id="ADe-0f-2cf"/>
+                    <constraint firstItem="PZM-8e-hkp" firstAttribute="leading" secondItem="J4O-20-ueY" secondAttribute="trailing" constant="10" id="Dyk-qv-wEs"/>
+                    <constraint firstItem="J4O-20-ueY" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="F1U-lV-cfU"/>
+                    <constraint firstItem="kuP-Ph-NxC" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="GXY-nd-89v"/>
+                    <constraint firstItem="kuP-Ph-NxC" firstAttribute="leading" secondItem="UsU-kK-EqI" secondAttribute="trailing" constant="10" id="RPI-ID-7FT"/>
+                    <constraint firstItem="UsU-kK-EqI" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="Xc9-zz-582"/>
+                    <constraint firstItem="PZM-8e-hkp" firstAttribute="top" secondItem="kuP-Ph-NxC" secondAttribute="bottom" id="a6z-j8-fuL"/>
+                    <constraint firstItem="UsU-kK-EqI" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="aTF-zD-jVy"/>
+                    <constraint firstAttribute="bottom" secondItem="J4O-20-ueY" secondAttribute="bottom" constant="8" id="khw-k8-EPv"/>
+                    <constraint firstAttribute="trailing" secondItem="PZM-8e-hkp" secondAttribute="trailing" constant="16" id="x8T-Sl-2Us"/>
+                    <constraint firstAttribute="trailing" secondItem="kuP-Ph-NxC" secondAttribute="trailing" constant="16" id="zgp-rk-4na"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="fluctuationPercentageLabel" destination="PZM-8e-hkp" id="cNv-fZ-w7C"/>
+                <outlet property="lastTradingPriceLabel" destination="kuP-Ph-NxC" id="yGj-HS-9dc"/>
+                <outlet property="tradingPairLabel" destination="J4O-20-ueY" id="2gq-qf-sdg"/>
+                <outlet property="tradingTitleLabel" destination="UsU-kK-EqI" id="Dad-ig-Gfk"/>
+            </connections>
+        </tableViewCell>
+    </objects>
+</document>

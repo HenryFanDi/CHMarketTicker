@@ -15,9 +15,10 @@ protocol MarketTickerPageContentScreen: class {
 class MarketTickerPageContentViewController: UIViewController {
     
     var presenter: MarketTickerPageContentPresenter!
-    @IBOutlet private weak var testLabel: UILabel!
     
     fileprivate(set) var viewModel: MarketTickerPageContentViewControllerViewModel!
+    
+    @IBOutlet private weak var tableView: UITableView!
     
     // MARK: - Lifecycle
     
@@ -39,8 +40,6 @@ extension MarketTickerPageContentViewController: MarketTickerPageContentScreen {
     
     func configureMarketTickerPageContent(viewModel: MarketTickerPageContentViewControllerViewModel) {
         self.viewModel = viewModel
-        
-        testLabel.text = "\(viewModel.pageIndex)"
     }
     
 }

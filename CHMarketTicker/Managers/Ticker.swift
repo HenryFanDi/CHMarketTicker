@@ -37,6 +37,10 @@ struct Ticker: Codable {
     // Custom
     
     var currency: String {
+        return tradingPairId.components(separatedBy: "-").first ?? ""
+    }
+    
+    var pairCurrency: String {
         return tradingPairId.components(separatedBy: "-").last ?? ""
     }
     

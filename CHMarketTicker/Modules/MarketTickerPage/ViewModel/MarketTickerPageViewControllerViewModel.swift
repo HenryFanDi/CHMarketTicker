@@ -19,26 +19,26 @@ class MarketTickerPageViewControllerViewModelBuilder {
     func buildViewModel(tickers: [Ticker]) -> MarketTickerPageViewControllerViewModel {
         var marketTickerPageContentViewControllers = [MarketTickerPageContentViewController]()
         
-        // Separating to different currencies
-        var currencies = [String]()
+        // Separating to different pair currencies
+        var pairCurrencies = [String]()
         for i in 0..<tickers.count {
-            let currency = tickers[i].currency
-            if !currencies.contains(currency) {
-                currencies.append(currency)
+            let pairCurrency = tickers[i].pairCurrency
+            if !pairCurrencies.contains(pairCurrency) {
+                pairCurrencies.append(pairCurrency)
                 continue
             }
         }
         
-        // Building marketTickerPageContentViewController by different currencies
-        for i in 0..<currencies.count {
-            var tickersOfCurrency = [Ticker]()
+        // Building marketTickerPageContentViewController by different pair currencies
+        for i in 0..<pairCurrencies.count {
+            var tickersOfPairCurrency = [Ticker]()
             tickers.forEach({ (ticker) in
-                if currencies[i].description == ticker.currency {
-                    tickersOfCurrency.append(ticker)
+                if pairCurrencies[i].description == ticker.pairCurrency {
+                    tickersOfPairCurrency.append(ticker)
                 }
             })
             
-            let marketTickerPageContentViewController = MarketTickerPageContentDefaultBuilder().buildMarketTickerPageContentModule(pageIndex: i, tickersOfCurrency: tickersOfCurrency)
+            let marketTickerPageContentViewController = MarketTickerPageContentDefaultBuilder().buildMarketTickerPageContentModule(pageIndex: i, tickersOfPairCurrency: tickersOfPairCurrency)
             marketTickerPageContentViewControllers.append(marketTickerPageContentViewController)
         }
         
