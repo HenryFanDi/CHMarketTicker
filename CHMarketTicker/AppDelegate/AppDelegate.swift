@@ -16,9 +16,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         let marketTickerViewController = MarketTickerDefaultBuilder().buildMarketTickerModule()
+        let navigationController = CHNavigationController(rootViewController: marketTickerViewController)
         
         window = UIWindow(frame: UIScreen.main.bounds)
-        window?.rootViewController = marketTickerViewController
+        window?.rootViewController = navigationController
         window?.makeKeyAndVisible()
         return true
     }

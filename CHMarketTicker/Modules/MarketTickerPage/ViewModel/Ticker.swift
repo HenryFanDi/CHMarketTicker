@@ -10,6 +10,8 @@ import UIKit
 
 struct Ticker: Codable {
     
+    // Default
+    
     var tradingPairId: String
     var timestamp: Int
     var highOf24h: String
@@ -30,6 +32,12 @@ struct Ticker: Codable {
         case lastTradePrice = "last_trade_price"
         case highestBid = "highest_bid"
         case lowestAsk = "lowest_ask"
+    }
+    
+    // Custom
+    
+    var currency: String {
+        return tradingPairId.components(separatedBy: "-").last ?? ""
     }
     
 }
