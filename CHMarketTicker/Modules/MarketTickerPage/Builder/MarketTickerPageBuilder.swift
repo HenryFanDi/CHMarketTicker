@@ -15,7 +15,7 @@ protocol MarketTickerPageBuilder: class {
 class MarketTickerPageDefaultBuilder: MarketTickerPageBuilder {
     
     func buildMarketTickerPageModule() -> MarketTickerPageViewController {
-        let viewController = MarketTickerPageViewController()
+        let viewController = MarketTickerPageViewController(transitionStyle: .scroll, navigationOrientation: .horizontal, options: nil)
         let presenter = MarketTickerPageDefaultPresenter(view: viewController)
         viewController.presenter = presenter
         return viewController

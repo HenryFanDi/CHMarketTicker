@@ -25,7 +25,7 @@ extension UIView {
         return nibObjects[0] as? UIView
     }
     
-    class func addSubViewConstraints(targetView: UIView, subView: UIView) {
+    class func addSubViewConstraints(to targetView: UIView, subView: UIView) {
         for subview in targetView.subviews {
             subview.removeFromSuperview()
         }

@@ -38,6 +38,8 @@ class MarketTickerViewController: UIViewController {
     // MARK: - Private
     
     private func configureLayout() {
+        let marketTickerPageViewController = MarketTickerPageDefaultBuilder().buildMarketTickerPageModule()
+        UIView.addSubViewConstraints(to: pageViewControllerBackgroundView, subView: marketTickerPageViewController.view)
     }
     
 }
