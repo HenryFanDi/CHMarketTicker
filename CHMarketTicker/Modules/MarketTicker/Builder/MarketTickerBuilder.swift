@@ -9,6 +9,7 @@
 import UIKit
 
 protocol MarketTickerBuilder: class {
+    func buildMarketTickerModule() -> MarketTickerViewController
 }
 
 class MarketTickerDefaultBuilder: MarketTickerBuilder {
