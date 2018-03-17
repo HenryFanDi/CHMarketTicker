@@ -9,7 +9,7 @@
 import UIKit
 
 protocol MarketTickerPageContentPresenter: class {
-    
+    func loadMarketTickerPageContent()
 }
 
 class MarketTickerPageContentDefaultPresenter: MarketTickerPageContentPresenter {

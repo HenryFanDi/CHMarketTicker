@@ -23,6 +23,8 @@ class MarketTickerPageViewController: UIPageViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        presenter.loadMarketTickerPage()
+        
         delegate = self
         dataSource = self
     }

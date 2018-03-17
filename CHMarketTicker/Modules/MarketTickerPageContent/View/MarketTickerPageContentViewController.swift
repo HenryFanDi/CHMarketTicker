@@ -22,6 +22,8 @@ class MarketTickerPageContentViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        presenter.loadMarketTickerPageContent()
     }
     
     override func didReceiveMemoryWarning() {

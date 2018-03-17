@@ -16,8 +16,10 @@ class MarketTickerPageDefaultBuilder: MarketTickerPageBuilder {
     
     func buildMarketTickerPageModule() -> MarketTickerPageViewController {
         let viewController = MarketTickerPageViewController(transitionStyle: .scroll, navigationOrientation: .horizontal, options: nil)
-        let presenter = MarketTickerPageDefaultPresenter(view: viewController)
+        let interactor = MarketTickerPageDefaultInteractor()
+        let presenter = MarketTickerPageDefaultPresenter(view: viewController, interactor: interactor)
         viewController.presenter = presenter
+        interactor.presenter = presenter
         return viewController
     }
     

@@ -14,7 +14,8 @@ struct MarketTickerPageViewControllerViewModel {
 
 class MarketTickerPageViewControllerViewModelBuilder {
     
-    func buildViewModel() -> MarketTickerPageViewControllerViewModel {
+    func buildViewModel(tickers: [Ticker]) -> MarketTickerPageViewControllerViewModel {
+        print(tickers)
         return MarketTickerPageViewControllerViewModel()
     }
     
