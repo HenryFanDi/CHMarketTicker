@@ -19,7 +19,7 @@ protocol MarketTickerPagePresenterInteract: class {
 
 class MarketTickerPageDefaultPresenter: MarketTickerPagePresenter {
     
-    private weak var view: MarketTickerPageScreen?
+    private let view: MarketTickerPageScreen
     private let interactor: MarketTickerPageInteractor
     
     // MARK: - Initialize
@@ -44,7 +44,10 @@ extension MarketTickerPageDefaultPresenter: MarketTickerPagePresenterInteract {
     func didGetMarketTickersSuccess(tickers: [Ticker]) {
         print("didGetMarketTickersSuccess")
         let viewModel = MarketTickerPageViewControllerViewModelBuilder().buildViewModel(tickers: tickers)
-        view?.configureMarketTickerPage(viewModel: viewModel)
+        
+        DispatchQueue.main.async { [unowned self] () in
+            self.view.configureMarketTickerPage(viewModel: viewModel)
+        }
     }
     
     func didGetMarketTickersFailure() {

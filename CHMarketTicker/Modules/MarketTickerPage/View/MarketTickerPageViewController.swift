@@ -41,6 +41,9 @@ extension MarketTickerPageViewController: MarketTickerPageScreen {
     
     func configureMarketTickerPage(viewModel: MarketTickerPageViewControllerViewModel) {
         self.viewModel = viewModel
+        
+        let marketTickerPageContentViewController = viewModel.marketTickerPageContentViewControllers[0]
+        setViewControllers([marketTickerPageContentViewController], direction: .forward, animated: true, completion: nil)
     }
     
 }
@@ -56,10 +59,32 @@ extension MarketTickerPageViewController: UIPageViewControllerDelegate {
 extension MarketTickerPageViewController: UIPageViewControllerDataSource {
     
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
+        if let marketTickerPageContentViewController = viewController as? MarketTickerPageContentViewController {
+            var pageIndex = marketTickerPageContentViewController.viewModel.pageIndex
+            if pageIndex == 0 || pageIndex == NSNotFound {
+                return nil
+            }
+            pageIndex -= 1
+            
+            return viewModel.marketTickerPageContentViewControllers[pageIndex]
+        }
         return nil
     }
     
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerAfter viewController: UIViewController) -> UIViewController? {
+        if let marketTickerPageContentViewController = viewController as? MarketTickerPageContentViewController {
+            var pageIndex = marketTickerPageContentViewController.viewModel.pageIndex
+            if pageIndex == NSNotFound {
+                return nil
+            }
+            pageIndex += 1
+            
+            if pageIndex == viewModel.marketTickerPageContentViewControllers.count {
+                return nil
+            }
+            
+            return viewModel.marketTickerPageContentViewControllers[pageIndex]
+        }
         return nil
     }
     

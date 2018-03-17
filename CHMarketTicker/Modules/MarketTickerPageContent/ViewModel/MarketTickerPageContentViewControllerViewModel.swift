@@ -9,13 +9,14 @@
 import UIKit
 
 struct MarketTickerPageContentViewControllerViewModel {
-    
+    private(set) var pageIndex: Int
+    private(set) var tickersOfCurrency: [Ticker]
 }
 
 class MarketTickerPageContentViewControllerViewModelBuilder {
     
-    func buildViewModel(tickersOfCurrency: [Ticker]) -> MarketTickerPageContentViewControllerViewModel {
-        return MarketTickerPageContentViewControllerViewModel()
+    func buildViewModel(pageIndex: Int, tickersOfCurrency: [Ticker]) -> MarketTickerPageContentViewControllerViewModel {
+        return MarketTickerPageContentViewControllerViewModel(pageIndex: pageIndex, tickersOfCurrency: tickersOfCurrency)
     }
     
 }

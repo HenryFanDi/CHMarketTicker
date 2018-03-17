@@ -38,7 +38,7 @@ class MarketTickerPageViewControllerViewModelBuilder {
                 }
             })
             
-            let marketTickerPageContentViewController = MarketTickerPageContentDefaultBuilder().buildMarketTickerPageContentModule(tickersOfCurrency: tickersOfCurrency)
+            let marketTickerPageContentViewController = MarketTickerPageContentDefaultBuilder().buildMarketTickerPageContentModule(pageIndex: i, tickersOfCurrency: tickersOfCurrency)
             marketTickerPageContentViewControllers.append(marketTickerPageContentViewController)
         }
         
