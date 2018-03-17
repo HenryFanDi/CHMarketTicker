@@ -22,6 +22,9 @@ class MarketTickerPageViewController: UIPageViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        delegate = self
+        dataSource = self
     }
     
     override func didReceiveMemoryWarning() {
@@ -36,6 +39,26 @@ extension MarketTickerPageViewController: MarketTickerPageScreen {
     
     func configureMarketTickerPage(viewModel: MarketTickerPageViewControllerViewModel) {
         self.viewModel = viewModel
+    }
+    
+}
+
+// MARK: - UIPageViewControllerDelegate
+
+extension MarketTickerPageViewController: UIPageViewControllerDelegate {
+    
+}
+
+// MARK: - UIPageViewControllerDataSource
+
+extension MarketTickerPageViewController: UIPageViewControllerDataSource {
+    
+    func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
+        return nil
+    }
+    
+    func pageViewController(_ pageViewController: UIPageViewController, viewControllerAfter viewController: UIViewController) -> UIViewController? {
+        return nil
     }
     
 }
