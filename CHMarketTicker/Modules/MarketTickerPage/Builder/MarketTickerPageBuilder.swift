@@ -16,6 +16,8 @@ class MarketTickerPageDefaultBuilder: MarketTickerPageBuilder {
     
     func buildMarketTickerPageModule() -> MarketTickerPageViewController {
         let viewController = MarketTickerPageViewController()
+        let presenter = MarketTickerPageDefaultPresenter(view: viewController)
+        viewController.presenter = presenter
         return viewController
     }
     

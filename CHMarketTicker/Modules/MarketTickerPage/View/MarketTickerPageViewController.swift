@@ -8,7 +8,15 @@
 
 import UIKit
 
+protocol MarketTickerPageScreen: class {
+    func configureMarketTickerPage(viewModel: MarketTickerPageViewControllerViewModel)
+}
+
 class MarketTickerPageViewController: UIPageViewController {
+    
+    var presenter: MarketTickerPagePresenter!
+    
+    fileprivate var viewModel: MarketTickerPageViewControllerViewModel!
     
     // MARK: - Lifecycle
     
@@ -18,6 +26,16 @@ class MarketTickerPageViewController: UIPageViewController {
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
+    }
+    
+}
+
+// MARK: - MarketTickerPageScreen
+
+extension MarketTickerPageViewController: MarketTickerPageScreen {
+    
+    func configureMarketTickerPage(viewModel: MarketTickerPageViewControllerViewModel) {
+        self.viewModel = viewModel
     }
     
 }

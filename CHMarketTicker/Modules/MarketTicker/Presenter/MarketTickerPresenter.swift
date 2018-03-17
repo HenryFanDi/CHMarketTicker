@@ -16,7 +16,7 @@ class MarketTickerDefaultPresenter: MarketTickerPresenter {
     
     private weak var view: MarketTickerScreen?
     
-    // MARK: - Lifecycle
+    // MARK: - Initialize
     
     required init(view: MarketTickerScreen) {
         self.view = view
