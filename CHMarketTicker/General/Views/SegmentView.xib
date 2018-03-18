@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="GillSans.ttc">
+            <string>GillSans</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="SegmentView" customModule="CHMarketTicker" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="80" height="45"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cmR-bo-6g9" userLabel="Bottom Line">
+                    <rect key="frame" x="8" y="43" width="64" height="2"/>
+                    <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="2" id="K7w-6b-sCO"/>
+                    </constraints>
+                </view>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="COB" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IdA-Yh-xlP" userLabel="Title Label">
+                    <rect key="frame" x="0.0" y="12" width="80" height="20"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="20" id="TRf-Tw-vCC"/>
+                        <constraint firstAttribute="width" constant="80" id="rpY-gJ-rGj"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="GillSans" family="Gill Sans" pointSize="17"/>
+                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="IdA-Yh-xlP" secondAttribute="bottom" constant="13" id="0eV-44-yl6"/>
+                <constraint firstAttribute="trailing" secondItem="cmR-bo-6g9" secondAttribute="trailing" constant="8" id="6fg-Hr-hfg"/>
+                <constraint firstItem="IdA-Yh-xlP" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="EJA-c4-uf6"/>
+                <constraint firstItem="IdA-Yh-xlP" firstAttribute="trailing" secondItem="vUN-kp-3ea" secondAttribute="trailing" id="Hfw-jZ-XCu"/>
+                <constraint firstItem="IdA-Yh-xlP" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="12" id="Ph3-Hp-U7l"/>
+                <constraint firstItem="cmR-bo-6g9" firstAttribute="bottom" secondItem="vUN-kp-3ea" secondAttribute="bottom" id="S1B-yp-fFa"/>
+                <constraint firstItem="cmR-bo-6g9" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="8" id="v90-nC-4K6"/>
+            </constraints>
+            <nil key="simulatedTopBarMetrics"/>
+            <nil key="simulatedBottomBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <connections>
+                <outlet property="bottomLine" destination="cmR-bo-6g9" id="pDj-jn-wA7"/>
+                <outlet property="titleLabel" destination="IdA-Yh-xlP" id="CIs-5y-eN9"/>
+            </connections>
+        </view>
+    </objects>
+</document>

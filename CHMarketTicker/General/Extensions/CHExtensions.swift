@@ -25,6 +25,13 @@ extension UIView {
         return nibObjects[0] as? UIView
     }
     
+    class func loadNibNamed(name: String, owner: Any?) -> UIView {
+        if let nibObjects = Bundle.main.loadNibNamed(name, owner: owner, options: nil), let view = nibObjects[0] as? UIView {
+            return view
+        }
+        return UIView()
+    }
+    
     class func addSubViewConstraints(to targetView: UIView, subView: UIView) {
         for subview in targetView.subviews {
             subview.removeFromSuperview()

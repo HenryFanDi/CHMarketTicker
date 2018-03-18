@@ -21,7 +21,7 @@ class MarketTickerViewController: UIViewController {
     
     fileprivate var socket = WebSocket(url: URL(string: "wss://feed.cobinhood.com/ws")!)
     
-    @IBOutlet private weak var segmentBackgroundView: UIView!
+    @IBOutlet fileprivate weak var segmentBackgroundView: UIView!
     @IBOutlet private weak var pageViewControllerBackgroundView: UIView!
     
     // MARK: - Lifecycle
@@ -65,6 +65,8 @@ extension MarketTickerViewController: MarketTickerScreen {
     }
     
     private func configureLayout() {
+        addSegmentViews()
+        
         let marketTickerPageViewController = MarketTickerPageDefaultBuilder().buildMarketTickerPageModule(tickerViewModels: viewModel.tickerViewModels)
         UIView.addSubViewConstraints(to: pageViewControllerBackgroundView, subView: marketTickerPageViewController.view)
     }
@@ -98,6 +100,70 @@ extension MarketTickerViewController: WebSocketDelegate {
     }
     
     func websocketDidReceiveData(socket: WebSocketClient, data: Data) {
+    }
+    
+}
+
+// MARK: - Segment
+
+extension MarketTickerViewController {
+    
+    fileprivate func addSegmentViews() {
+        segmentBackgroundView.subviews.forEach{ $0.removeFromSuperview() }
+        
+        var items = [SegmentView]()
+        for (_, pairCurrency) in viewModel.pairCurrencies.enumerated() {
+            let segmentView = SegmentView.initWithNib()
+            segmentView.configure(pairCurrency: pairCurrency)
+            segmentBackgroundView.addSubview(segmentView)
+            items.append(segmentView)
+        }
+        addSegmentBackgroundViewConstraints(items: items)
+    }
+    
+    fileprivate func addSegmentBackgroundViewConstraints(items: [SegmentView]) {
+        let numberOfItems = items.count
+        let itemWidth = UIScreen.main.bounds.width / CGFloat(numberOfItems)
+        let metrics = [
+            "padding": 0,
+            "itemWidth": itemWidth
+        ]
+        
+        for var index in 0..<numberOfItems {
+            var followingsItem = SegmentView()
+            let item = items[index]
+            item.translatesAutoresizingMaskIntoConstraints = false
+            
+            if index > 0, index < numberOfItems - 1 {
+                followingsItem = items[index - 1]
+            }
+            
+            if index == 0 {
+                segmentBackgroundView.addConstraints(
+                    NSLayoutConstraint.constraints(withVisualFormat: "H:|-padding-[item(itemWidth)]",
+                                                   options: NSLayoutFormatOptions(rawValue: 0),
+                                                   metrics: metrics,
+                                                   views: ["item": item]))
+            } else if index == numberOfItems - 1 {
+                segmentBackgroundView.addConstraints(
+                    NSLayoutConstraint.constraints(withVisualFormat: "H:[item(itemWidth)]-padding-|",
+                                                   options: NSLayoutFormatOptions(rawValue: 0),
+                                                   metrics: metrics,
+                                                   views: ["item": item]))
+            } else {
+                segmentBackgroundView.addConstraints(
+                    NSLayoutConstraint.constraints(withVisualFormat: "H:[followingsItem]-padding-[item(==followingsItem)]",
+                                                   options: NSLayoutFormatOptions(rawValue: 0),
+                                                   metrics: metrics,
+                                                   views: ["followingsItem": followingsItem, "item": item]))
+            }
+            segmentBackgroundView.addConstraints(
+                NSLayoutConstraint.constraints(withVisualFormat: "V:|-padding-[item]-padding-|",
+                                               options: NSLayoutFormatOptions(rawValue: 0),
+                                               metrics: metrics,
+                                               views: ["item": item]))
+            index += 1
+        }
     }
     
 }

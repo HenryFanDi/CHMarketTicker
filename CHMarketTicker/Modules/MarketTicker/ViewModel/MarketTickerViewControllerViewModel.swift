@@ -10,6 +10,7 @@ import UIKit
 
 struct MarketTickerViewControllerViewModel {
     private(set) var tickerViewModels: [TickerViewModel]
+    private(set) var pairCurrencies: [String]
 }
 
 extension MarketTickerViewControllerViewModel {
@@ -77,7 +78,16 @@ extension MarketTickerViewControllerViewModel {
 class MarketTickerViewControllerViewModelBuilder {
     
     func buildViewModel(tickerViewModels: [TickerViewModel]) -> MarketTickerViewControllerViewModel {
-        return MarketTickerViewControllerViewModel(tickerViewModels: tickerViewModels)
+        // Separating to different pair currencies
+        var pairCurrencies = [String]()
+        for i in 0..<tickerViewModels.count {
+            let pairCurrency = tickerViewModels[i].pairCurrency
+            if !pairCurrencies.contains(pairCurrency) {
+                pairCurrencies.append(pairCurrency)
+                continue
+            }
+        }
+        return MarketTickerViewControllerViewModel(tickerViewModels: tickerViewModels, pairCurrencies: pairCurrencies)
     }
     
 }
