@@ -30,8 +30,6 @@ class MarketTickerViewController: UIViewController {
         super.viewDidLoad()
         
         presenter.loadMarketTicker()
-        
-        configureSocket()
     }
     
     override func didReceiveMemoryWarning() {
@@ -43,7 +41,18 @@ class MarketTickerViewController: UIViewController {
         socket.delegate = nil
     }
     
-    // MARK: - Private
+}
+
+// MARK: - MarketTickerScreen
+
+extension MarketTickerViewController: MarketTickerScreen {
+    
+    func configureMarketTicker(viewModel: MarketTickerViewControllerViewModel) {
+        self.viewModel = viewModel
+        
+        configureSocket()
+        configureLayout()
+    }
     
     private func configureSocket() {
         socket.delegate = self
@@ -53,17 +62,6 @@ class MarketTickerViewController: UIViewController {
             self.socket.connect()
         }
         TaskTimerManager.shared.startTaskTimer(task: task)
-    }
-    
-}
-
-// MARK: - MarketTickerScreen
-
-extension MarketTickerViewController: MarketTickerScreen {
-    
-    func configureMarketTicker(viewModel: MarketTickerViewControllerViewModel) {
-        self.viewModel = viewModel
-        configureLayout()
     }
     
     private func configureLayout() {
@@ -80,14 +78,8 @@ extension MarketTickerViewController: WebSocketDelegate {
     func websocketDidConnect(socket: WebSocketClient) {
         print("websocketDidConnect")
         
-        let tickerRequest = TickerRequestBuilder().build(tradingPairId: "COB-ETH")
-        if let encodeData = tickerRequest.encode() {
-            if let decodeData = try? JSONDecoder().decode(TickerRequest.self, from: encodeData) {
-                if let jsonData = decodeData.encode(), let jsonString = String(data: jsonData, encoding: .utf8) {
-                    print(jsonString)
-                    socket.write(string: jsonString)
-                }
-            }
+        viewModel.subscribeTickers().forEach { (jsonString) in
+            socket.write(string: jsonString)
         }
     }
     
@@ -102,7 +94,8 @@ extension MarketTickerViewController: WebSocketDelegate {
     }
     
     func websocketDidReceiveMessage(socket: WebSocketClient, text: String) {
-        print("websocketDidReceiveMessage : \(text)")
+        // TODO: Update channelId on TickerViewModel and Add NotificationKey
+        viewModel.updateChannelIdAfterSubscribed(responseString: text)
     }
     
     func websocketDidReceiveData(socket: WebSocketClient, data: Data) {

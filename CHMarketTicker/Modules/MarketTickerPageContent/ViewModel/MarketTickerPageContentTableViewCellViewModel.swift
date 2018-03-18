@@ -8,6 +8,7 @@
 
 import UIKit
 
+// TODO: class
 struct MarketTickerPageContentTableViewCellViewModel: MarketTickerPageContentTableViewCellPresentable {
     var tradingTitleString: String
     var tradingPairString: String
@@ -17,6 +18,7 @@ struct MarketTickerPageContentTableViewCellViewModel: MarketTickerPageContentTab
 
 class MarketTickerPageContentTableViewCellViewModelBuilder {
     
+    // TODO: TickerViewModel
     func buildViewModel(ticker: Ticker) -> MarketTickerPageContentTableViewCellViewModel {
         let tradingTitleString = ticker.currency
         let tradingPairString = ticker.tradingPairId

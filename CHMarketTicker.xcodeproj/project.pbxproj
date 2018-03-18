@@ -44,6 +44,7 @@
 		D8F80381205DFB0000F253E6 /* TickerRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8F80380205DFB0000F253E6 /* TickerRequest.swift */; };
 		D8F80385205DFF4F00F253E6 /* Serializable.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8F80384205DFF4F00F253E6 /* Serializable.swift */; };
 		D8F80388205E101500F253E6 /* MarketTickerInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8F80387205E101500F253E6 /* MarketTickerInteractor.swift */; };
+		D8F8038A205E25F500F253E6 /* TickerResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8F80389205E25F500F253E6 /* TickerResponse.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -109,6 +110,7 @@
 		D8F80380205DFB0000F253E6 /* TickerRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TickerRequest.swift; sourceTree = "<group>"; };
 		D8F80384205DFF4F00F253E6 /* Serializable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Serializable.swift; sourceTree = "<group>"; };
 		D8F80387205E101500F253E6 /* MarketTickerInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarketTickerInteractor.swift; sourceTree = "<group>"; };
+		D8F80389205E25F500F253E6 /* TickerResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TickerResponse.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -440,6 +442,7 @@
 			children = (
 				D8F8037E205DE7FD00F253E6 /* TaskTimerManager.swift */,
 				D8F80380205DFB0000F253E6 /* TickerRequest.swift */,
+				D8F80389205E25F500F253E6 /* TickerResponse.swift */,
 			);
 			path = WebSocket;
 			sourceTree = "<group>";
@@ -659,6 +662,7 @@
 				D85F1E36205CC02B00262F22 /* MarketTickerPageInteractor.swift in Sources */,
 				D8BFC774205BF64E00A144D4 /* CHAPIRouter.swift in Sources */,
 				D85F1E0D205C076C00262F22 /* TickerManager.swift in Sources */,
+				D8F8038A205E25F500F253E6 /* TickerResponse.swift in Sources */,
 				D85F1E21205CB49000262F22 /* MarketTickerPageBuilder.swift in Sources */,
 				D85F1E3F205CEECA00262F22 /* MarketTickerPageContentTableViewCellViewModel.swift in Sources */,
 				D8BFC736205BEE5F00A144D4 /* CHMarketTicker.xcdatamodeld in Sources */,
