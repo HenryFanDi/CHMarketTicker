@@ -44,7 +44,12 @@ extension MarketTickerDefaultPresenter: MarketTickerPresenterInteract {
     func didGetMarketTickersSuccess(tickers: [Ticker]) {
         print("didGetMarketTickersSuccess")
         
-        let viewModel = MarketTickerViewControllerViewModelBuilder().buildViewModel(tickers: tickers)
+        var tickerViewModels = [TickerViewModel]()
+        tickers.forEach { (ticker) in
+            let tickerViewModel = TickerViewModelBuilder().buildViewModel(ticker: ticker)
+            tickerViewModels.append(tickerViewModel)
+        }
+        let viewModel = MarketTickerViewControllerViewModelBuilder().buildViewModel(tickerViewModels: tickerViewModels)
         
         DispatchQueue.main.async { [unowned self] () in
             self.view?.configureMarketTicker(viewModel: viewModel)

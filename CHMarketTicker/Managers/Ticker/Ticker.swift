@@ -34,14 +34,4 @@ struct Ticker: Serializable {
         case lowestAsk = "lowest_ask"
     }
     
-    // Custom
-    
-    var currency: String {
-        return tradingPairId.components(separatedBy: "-").first ?? ""
-    }
-    
-    var pairCurrency: String {
-        return tradingPairId.components(separatedBy: "-").last ?? ""
-    }
-    
 }

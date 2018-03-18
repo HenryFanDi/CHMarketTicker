@@ -9,23 +9,23 @@
 import UIKit
 
 protocol MarketTickerPageInteractor: class {
-    func getMarketTickers() -> [Ticker]
+    func getMarketTickerViewModels() -> [TickerViewModel]
 }
 
 class MarketTickerPageDefaultInteractor: MarketTickerPageInteractor {
     
-    private var tickers: [Ticker]
+    private var tickerViewModels: [TickerViewModel]
     
     // MARK: - Initialize
     
-    required init(tickers: [Ticker]) {
-        self.tickers = tickers
+    required init(tickerViewModels: [TickerViewModel]) {
+        self.tickerViewModels = tickerViewModels
     }
     
     // MARK: - MarketTickerPageInteractor
     
-    func getMarketTickers() -> [Ticker] {
-        return tickers
+    func getMarketTickerViewModels() -> [TickerViewModel] {
+        return tickerViewModels
     }
     
 }

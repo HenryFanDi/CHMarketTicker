@@ -27,8 +27,8 @@ class MarketTickerPageDefaultPresenter: MarketTickerPagePresenter {
     // MARK: - MarketTickerPagePresenter
     
     func loadMarketTickerPage() {
-        let tickers = interactor.getMarketTickers()
-        let viewModel = MarketTickerPageViewControllerViewModelBuilder().buildViewModel(tickers: tickers)
+        let tickerViewModels = interactor.getMarketTickerViewModels()
+        let viewModel = MarketTickerPageViewControllerViewModelBuilder().buildViewModel(tickerViewModels: tickerViewModels)
         view.configureMarketTickerPage(viewModel: viewModel)
     }
     

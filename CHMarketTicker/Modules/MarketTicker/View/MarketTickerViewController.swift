@@ -65,7 +65,7 @@ extension MarketTickerViewController: MarketTickerScreen {
     }
     
     private func configureLayout() {
-        let marketTickerPageViewController = MarketTickerPageDefaultBuilder().buildMarketTickerPageModule(tickers: viewModel.tickers)
+        let marketTickerPageViewController = MarketTickerPageDefaultBuilder().buildMarketTickerPageModule(tickerViewModels: viewModel.tickerViewModels)
         UIView.addSubViewConstraints(to: pageViewControllerBackgroundView, subView: marketTickerPageViewController.view)
     }
     

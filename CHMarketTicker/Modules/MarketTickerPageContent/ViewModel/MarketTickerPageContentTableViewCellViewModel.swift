@@ -10,17 +10,17 @@ import UIKit
 
 // TODO: class
 struct MarketTickerPageContentTableViewCellViewModel: MarketTickerPageContentTableViewCellPresentable {
-    var tradingTitleString: String
-    var tradingPairString: String
-    var lastTradingPriceString: String
-    var fluctuationPercentageString: String
+    private(set) var tradingTitleString: String
+    private(set) var tradingPairString: String
+    private(set) var lastTradingPriceString: String
+    private(set) var fluctuationPercentageString: String
 }
 
 class MarketTickerPageContentTableViewCellViewModelBuilder {
     
-    // TODO: TickerViewModel
-    func buildViewModel(ticker: Ticker) -> MarketTickerPageContentTableViewCellViewModel {
-        let tradingTitleString = ticker.currency
+    func buildViewModel(tickerViewModel: TickerViewModel) -> MarketTickerPageContentTableViewCellViewModel {
+        let ticker = tickerViewModel.ticker
+        let tradingTitleString = tickerViewModel.currency
         let tradingPairString = ticker.tradingPairId
         let lastTradingPriceString = ticker.lastTradePrice
         

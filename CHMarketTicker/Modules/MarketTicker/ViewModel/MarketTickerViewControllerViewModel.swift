@@ -9,7 +9,7 @@
 import UIKit
 
 struct MarketTickerViewControllerViewModel {
-    var tickers: [Ticker]
+    private(set) var tickerViewModels: [TickerViewModel]
 }
 
 extension MarketTickerViewControllerViewModel {
@@ -17,8 +17,8 @@ extension MarketTickerViewControllerViewModel {
     func subscribeTickers() -> [String] {
         var subscribers = [String]()
         // TODO: TickerViewModel
-        tickers.forEach { (ticker) in
-            let tickerRequest = TickerRequestBuilder().build(tradingPairId: ticker.tradingPairId)
+        tickerViewModels.forEach { (tickerViewModel) in
+            let tickerRequest = TickerRequestBuilder().build(tradingPairId: tickerViewModel.ticker.tradingPairId)
             if let encodeData = tickerRequest.encode() {
                 if let decodeData = try? JSONDecoder().decode(TickerRequest.self, from: encodeData) {
                     if let jsonData = decodeData.encode(), let jsonString = String(data: jsonData, encoding: .utf8) {
@@ -47,8 +47,8 @@ extension MarketTickerViewControllerViewModel {
             return
         }
         
-        for (_, ticker) in tickers.enumerated() {
-            if ticker.tradingPairId == tickerResponse.tradingPairId {
+        for (_, tickerViewModel) in tickerViewModels.enumerated() {
+            if tickerViewModel.ticker.tradingPairId == tickerResponse.tradingPairId {
                 print(tickerResponse)
                 break
             }
@@ -59,9 +59,9 @@ extension MarketTickerViewControllerViewModel {
 
 class MarketTickerViewControllerViewModelBuilder {
     
-    func buildViewModel(tickers: [Ticker]) -> MarketTickerViewControllerViewModel {
+    func buildViewModel(tickerViewModels: [TickerViewModel]) -> MarketTickerViewControllerViewModel {
         // TODO: TickerViewModel
-        return MarketTickerViewControllerViewModel(tickers: tickers)
+        return MarketTickerViewControllerViewModel(tickerViewModels: tickerViewModels)
     }
     
 }

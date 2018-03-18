@@ -10,19 +10,19 @@ import UIKit
 
 protocol MarketTickerPageContentInteractor: class {
     func getPageIndex() -> Int
-    func getTickersOfPairCurrency() -> [Ticker]
+    func getTickerViewModelsOfPairCurrency() -> [TickerViewModel]
 }
 
 class MarketTickerPageContentDefaultInteractor: MarketTickerPageContentInteractor {
     
     private var pageIndex: Int
-    private var tickersOfPairCurrency: [Ticker]
+    private var tickerViewModelsOfPairCurrency: [TickerViewModel]
     
     // MARK: - Initialize
     
-    required init(pageIndex: Int, tickersOfPairCurrency: [Ticker]) {
+    required init(pageIndex: Int, tickerViewModelsOfPairCurrency: [TickerViewModel]) {
         self.pageIndex = pageIndex
-        self.tickersOfPairCurrency = tickersOfPairCurrency
+        self.tickerViewModelsOfPairCurrency = tickerViewModelsOfPairCurrency
     }
     
     // MARK: - MarketTickerPageContentInteractor
@@ -31,8 +31,8 @@ class MarketTickerPageContentDefaultInteractor: MarketTickerPageContentInteracto
         return pageIndex
     }
     
-    func getTickersOfPairCurrency() -> [Ticker] {
-        return tickersOfPairCurrency
+    func getTickerViewModelsOfPairCurrency() -> [TickerViewModel] {
+        return tickerViewModelsOfPairCurrency
     }
     
 }
