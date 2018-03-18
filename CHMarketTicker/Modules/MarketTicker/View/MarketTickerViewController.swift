@@ -32,7 +32,6 @@ class MarketTickerViewController: UIViewController {
         presenter.loadMarketTicker()
         
         configureSocket()
-        configureLayout()
     }
     
     override func didReceiveMemoryWarning() {
@@ -56,11 +55,6 @@ class MarketTickerViewController: UIViewController {
         TaskTimerManager.shared.startTaskTimer(task: task)
     }
     
-    private func configureLayout() {
-        let marketTickerPageViewController = MarketTickerPageDefaultBuilder().buildMarketTickerPageModule()
-        UIView.addSubViewConstraints(to: pageViewControllerBackgroundView, subView: marketTickerPageViewController.view)
-    }
-    
 }
 
 // MARK: - MarketTickerScreen
@@ -69,6 +63,12 @@ extension MarketTickerViewController: MarketTickerScreen {
     
     func configureMarketTicker(viewModel: MarketTickerViewControllerViewModel) {
         self.viewModel = viewModel
+        configureLayout()
+    }
+    
+    private func configureLayout() {
+        let marketTickerPageViewController = MarketTickerPageDefaultBuilder().buildMarketTickerPageModule(tickers: viewModel.tickers)
+        UIView.addSubViewConstraints(to: pageViewControllerBackgroundView, subView: marketTickerPageViewController.view)
     }
     
 }

@@ -9,13 +9,13 @@
 import UIKit
 
 struct MarketTickerViewControllerViewModel {
-    
+    var tickers: [Ticker]
 }
 
 class MarketTickerViewControllerViewModelBuilder {
     
-    func buildViewModel() -> MarketTickerViewControllerViewModel {
-        return MarketTickerViewControllerViewModel()
+    func buildViewModel(tickers: [Ticker]) -> MarketTickerViewControllerViewModel {
+        return MarketTickerViewControllerViewModel(tickers: tickers)
     }
     
 }

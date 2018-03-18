@@ -9,17 +9,16 @@
 import UIKit
 
 protocol MarketTickerPageBuilder: class {
-    func buildMarketTickerPageModule() -> MarketTickerPageViewController
+    func buildMarketTickerPageModule(tickers: [Ticker]) -> MarketTickerPageViewController
 }
 
 class MarketTickerPageDefaultBuilder: MarketTickerPageBuilder {
     
-    func buildMarketTickerPageModule() -> MarketTickerPageViewController {
+    func buildMarketTickerPageModule(tickers: [Ticker]) -> MarketTickerPageViewController {
         let viewController = MarketTickerPageViewController(transitionStyle: .scroll, navigationOrientation: .horizontal, options: nil)
-        let interactor = MarketTickerPageDefaultInteractor()
+        let interactor = MarketTickerPageDefaultInteractor(tickers: tickers)
         let presenter = MarketTickerPageDefaultPresenter(view: viewController, interactor: interactor)
         viewController.presenter = presenter
-        interactor.presenter = presenter
         return viewController
     }
     

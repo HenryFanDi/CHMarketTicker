@@ -12,21 +12,48 @@ protocol MarketTickerPresenter: class {
     func loadMarketTicker()
 }
 
+protocol MarketTickerPresenterInteract: class {
+    func didGetMarketTickersSuccess(tickers: [Ticker])
+    func didGetMarketTickersFailure()
+}
+
 class MarketTickerDefaultPresenter: MarketTickerPresenter {
     
-    private weak var view: MarketTickerScreen?
+    fileprivate weak var view: MarketTickerScreen?
+    private let interactor: MarketTickerInteractor
     
     // MARK: - Initialize
     
-    required init(view: MarketTickerScreen) {
+    required init(view: MarketTickerScreen, interactor: MarketTickerInteractor) {
         self.view = view
+        self.interactor = interactor
     }
     
     // MARK: - MarketTickerPresenter
     
     func loadMarketTicker() {
-        let viewModel = MarketTickerViewControllerViewModelBuilder().buildViewModel()
-        view?.configureMarketTicker(viewModel: viewModel)
+        interactor.getMarketTickers()
+    }
+    
+}
+
+// MARK: - MarketTickerPresenterInteract
+
+extension MarketTickerDefaultPresenter: MarketTickerPresenterInteract {
+    
+    func didGetMarketTickersSuccess(tickers: [Ticker]) {
+        print("didGetMarketTickersSuccess")
+        
+        let viewModel = MarketTickerViewControllerViewModelBuilder().buildViewModel(tickers: tickers)
+        
+        DispatchQueue.main.async { [unowned self] () in
+            self.view?.configureMarketTicker(viewModel: viewModel)
+        }
+    }
+    
+    func didGetMarketTickersFailure() {
+        // TODO: Error handling
+        print("didGetMarketTickersFailure")
     }
     
 }

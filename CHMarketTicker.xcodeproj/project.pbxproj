@@ -43,6 +43,7 @@
 		D8F8037F205DE7FD00F253E6 /* TaskTimerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8F8037E205DE7FD00F253E6 /* TaskTimerManager.swift */; };
 		D8F80381205DFB0000F253E6 /* TickerRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8F80380205DFB0000F253E6 /* TickerRequest.swift */; };
 		D8F80385205DFF4F00F253E6 /* Serializable.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8F80384205DFF4F00F253E6 /* Serializable.swift */; };
+		D8F80388205E101500F253E6 /* MarketTickerInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8F80387205E101500F253E6 /* MarketTickerInteractor.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -107,6 +108,7 @@
 		D8F8037E205DE7FD00F253E6 /* TaskTimerManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskTimerManager.swift; sourceTree = "<group>"; };
 		D8F80380205DFB0000F253E6 /* TickerRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TickerRequest.swift; sourceTree = "<group>"; };
 		D8F80384205DFF4F00F253E6 /* Serializable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Serializable.swift; sourceTree = "<group>"; };
+		D8F80387205E101500F253E6 /* MarketTickerInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarketTickerInteractor.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -177,6 +179,7 @@
 				D8BFC75F205BF19F00A144D4 /* View */,
 				D8BFC761205BF1B100A144D4 /* ViewModel */,
 				D8BFC763205BF1CE00A144D4 /* Presenter */,
+				D8F80386205E0FF000F253E6 /* Interactor */,
 			);
 			path = MarketTicker;
 			sourceTree = "<group>";
@@ -449,6 +452,14 @@
 			path = Helpers;
 			sourceTree = "<group>";
 		};
+		D8F80386205E0FF000F253E6 /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+				D8F80387205E101500F253E6 /* MarketTickerInteractor.swift */,
+			);
+			path = Interactor;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -664,6 +675,7 @@
 				D8F8037F205DE7FD00F253E6 /* TaskTimerManager.swift in Sources */,
 				D85F1E28205CB6EE00262F22 /* MarketTickerPageViewControllerViewModel.swift in Sources */,
 				D85F1E17205C979600262F22 /* MarketTickerPageViewController.swift in Sources */,
+				D8F80388205E101500F253E6 /* MarketTickerInteractor.swift in Sources */,
 				D85F1E2F205CBC6400262F22 /* MarketTickerPageContentBuilder.swift in Sources */,
 				D85F1E10205C93D500262F22 /* CHNavigationController.swift in Sources */,
 				D8F80381205DFB0000F253E6 /* TickerRequest.swift in Sources */,
