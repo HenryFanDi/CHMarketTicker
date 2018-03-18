@@ -23,6 +23,10 @@ class CHNavigationController: UINavigationController {
     override init(rootViewController: UIViewController) {
         super.init(rootViewController: rootViewController)
         
+        navigationBar.titleTextAttributes = [
+            NSAttributedStringKey.foregroundColor: UIColor.black,
+            NSAttributedStringKey.font: UIFont(name: "GillSans", size: 18.0)!
+        ]
         navigationBar.isTranslucent = false
     }
     

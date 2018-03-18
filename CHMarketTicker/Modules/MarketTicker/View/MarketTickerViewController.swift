@@ -29,6 +29,8 @@ class MarketTickerViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        navigationItem.title = "Pairs"
+        
         presenter.loadMarketTicker()
     }
     
