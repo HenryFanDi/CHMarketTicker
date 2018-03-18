@@ -8,7 +8,7 @@
 
 import UIKit
 
-struct Ticker: Codable {
+struct Ticker: Serializable {
     
     // Default
     

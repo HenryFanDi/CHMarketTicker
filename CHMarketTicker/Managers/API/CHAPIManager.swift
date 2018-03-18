@@ -12,7 +12,7 @@ protocol ManagerProtocol {
     func initWithResponseObject(responseObject: Any) -> Any?
 }
 
-class CHAPIManager: NSObject {
+class CHAPIManager {
     
     // MARK: - Singleton Pattern
     

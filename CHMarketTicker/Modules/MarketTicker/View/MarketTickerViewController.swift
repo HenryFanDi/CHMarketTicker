@@ -79,6 +79,16 @@ extension MarketTickerViewController: WebSocketDelegate {
     
     func websocketDidConnect(socket: WebSocketClient) {
         print("websocketDidConnect")
+        
+        let tickerRequest = TickerRequestBuilder().build(tradingPairId: "COB-ETH")
+        if let encodeData = tickerRequest.encode() {
+            if let decodeData = try? JSONDecoder().decode(TickerRequest.self, from: encodeData) {
+                if let jsonData = decodeData.encode(), let jsonString = String(data: jsonData, encoding: .utf8) {
+                    print(jsonString)
+                    socket.write(string: jsonString)
+                }
+            }
+        }
     }
     
     func websocketDidDisconnect(socket: WebSocketClient, error: Error?) {
@@ -92,7 +102,7 @@ extension MarketTickerViewController: WebSocketDelegate {
     }
     
     func websocketDidReceiveMessage(socket: WebSocketClient, text: String) {
-        print("websocketDidReceiveMessage")
+        print("websocketDidReceiveMessage : \(text)")
     }
     
     func websocketDidReceiveData(socket: WebSocketClient, data: Data) {

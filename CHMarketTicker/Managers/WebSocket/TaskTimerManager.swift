@@ -72,12 +72,12 @@ class TimerName {
 
 extension TimerName: Hashable {
     
-    public static func ==(lhs: TimerName, rhs: TimerName) -> Bool {
-        return lhs.hashValue == rhs.hashValue
+    var hashValue: Int {
+        return self.name.hashValue
     }
     
-    public var hashValue: Int {
-        return self.name.hashValue
+    static func ==(lhs: TimerName, rhs: TimerName) -> Bool {
+        return lhs.hashValue == rhs.hashValue
     }
     
 }
