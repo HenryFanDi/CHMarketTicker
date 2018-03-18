@@ -8,6 +8,7 @@
 
 import UIKit
 import Starscream
+import JGProgressHUD
 
 protocol MarketTickerScreen: class {
     func configureMarketTicker(viewModel: MarketTickerViewControllerViewModel)
@@ -21,6 +22,8 @@ class MarketTickerViewController: UIViewController {
     
     fileprivate var socket = WebSocket(url: URL(string: "wss://feed.cobinhood.com/ws")!)
     
+    fileprivate let hudProgress = JGProgressHUD(style: .dark)
+    
     @IBOutlet fileprivate weak var segmentBackgroundView: UIView!
     @IBOutlet private weak var pageViewControllerBackgroundView: UIView!
     
@@ -32,6 +35,14 @@ class MarketTickerViewController: UIViewController {
         navigationItem.title = "Pairs"
         
         presenter.loadMarketTicker()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        if !hudProgress.isVisible {
+            hudProgress.show(in: view, animated: true)
+        }
     }
     
     override func didReceiveMemoryWarning() {
@@ -51,6 +62,10 @@ extension MarketTickerViewController: MarketTickerScreen {
     
     func configureMarketTicker(viewModel: MarketTickerViewControllerViewModel) {
         self.viewModel = viewModel
+        
+        if hudProgress.isVisible {
+            hudProgress.dismiss(animated: true)
+        }
         
         configureSocket()
         configureLayout()
