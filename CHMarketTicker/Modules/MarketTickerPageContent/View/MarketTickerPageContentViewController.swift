@@ -18,7 +18,7 @@ class MarketTickerPageContentViewController: UIViewController {
     
     fileprivate(set) var viewModel: MarketTickerPageContentViewControllerViewModel!
     
-    @IBOutlet private weak var tableView: UITableView!
+    @IBOutlet fileprivate weak var tableView: UITableView!
     
     // MARK: - Lifecycle
     
@@ -50,6 +50,10 @@ extension MarketTickerPageContentViewController: MarketTickerPageContentScreen {
     
     func configureMarketTickerPageContent(viewModel: MarketTickerPageContentViewControllerViewModel) {
         self.viewModel = viewModel
+        
+        if let tableView = tableView {
+            tableView.reloadData()
+        }
     }
     
 }

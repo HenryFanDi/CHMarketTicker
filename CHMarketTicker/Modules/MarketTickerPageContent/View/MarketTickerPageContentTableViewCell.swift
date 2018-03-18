@@ -43,6 +43,4 @@ class MarketTickerPageContentTableViewCell: UITableViewCell {
         self.viewModel = viewModel
     }
     
-    // TODO: Notification for Update
-    
 }

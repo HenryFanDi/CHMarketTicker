@@ -24,6 +24,4 @@ class MarketTickerPageContentViewControllerViewModelBuilder {
         return MarketTickerPageContentViewControllerViewModel(pageIndex: pageIndex, cellViewModels: cellViewModels)
     }
     
-    // TODO: Notification for Update
-    
 }
