@@ -8,7 +8,7 @@
 
 import UIKit
 
-struct TickerViewModel {
+class TickerViewModel {
     
     private(set) var ticker: Ticker
     private(set) var channelId: String?
@@ -21,15 +21,11 @@ struct TickerViewModel {
         return ticker.tradingPairId.components(separatedBy: "-").last ?? ""
     }
     
-}
-
-extension TickerViewModel {
-    
     init(ticker: Ticker) {
         self.ticker = ticker
     }
     
-    mutating func update(channelId: String) {
+    func updateChannelId(channelId: String) {
         self.channelId = channelId
     }
     

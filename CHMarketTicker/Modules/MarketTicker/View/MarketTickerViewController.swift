@@ -94,12 +94,10 @@ extension MarketTickerViewController: WebSocketDelegate {
     }
     
     func websocketDidReceiveMessage(socket: WebSocketClient, text: String) {
-        // TODO: Update channelId on TickerViewModel and Add NotificationKey
-        viewModel.updateChannelIdAfterSubscribed(responseString: text)
+        viewModel.updateTickersAfterSubscribed(responseString: text)
     }
     
     func websocketDidReceiveData(socket: WebSocketClient, data: Data) {
-        print("websocketDidReceiveData")
     }
     
 }

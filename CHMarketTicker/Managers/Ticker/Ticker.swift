@@ -10,8 +10,6 @@ import UIKit
 
 struct Ticker: Serializable {
     
-    // Default
-    
     var tradingPairId: String
     var timestamp: Int
     var highOf24h: String

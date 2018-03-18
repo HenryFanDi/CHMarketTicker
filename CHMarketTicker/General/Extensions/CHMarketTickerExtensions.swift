@@ -65,3 +65,11 @@ extension UIViewController {
     }
     
 }
+
+// MARK: - Notification
+
+extension Notification.Name {
+    
+    static let didReceiveTickerUpdate = Notification.Name("didReceiveTickerUpdate")
+    
+}

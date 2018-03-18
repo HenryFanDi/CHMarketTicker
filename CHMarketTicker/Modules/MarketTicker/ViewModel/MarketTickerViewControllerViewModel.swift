@@ -16,7 +16,6 @@ extension MarketTickerViewControllerViewModel {
     
     func subscribeTickers() -> [String] {
         var subscribers = [String]()
-        // TODO: TickerViewModel
         tickerViewModels.forEach { (tickerViewModel) in
             let tickerRequest = TickerRequestBuilder().build(tradingPairId: tickerViewModel.ticker.tradingPairId)
             if let encodeData = tickerRequest.encode() {
@@ -30,7 +29,7 @@ extension MarketTickerViewControllerViewModel {
         return subscribers
     }
     
-    func updateChannelIdAfterSubscribed(responseString: String) {
+    func updateTickersAfterSubscribed(responseString: String) {
         guard let jsonString = responseString.data(using: .utf8) else {
             return
         }
@@ -39,17 +38,35 @@ extension MarketTickerViewControllerViewModel {
             return
         }
         
+        guard let object = jsonObject as? [String: AnyObject] else {
+            return
+        }
+        
         guard let jsonData = try? JSONSerialization.data(withJSONObject: jsonObject, options: .prettyPrinted) else {
             return
         }
         
-        guard let tickerResponse = try? JSONDecoder().decode(TickerResponse.self, from: jsonData) else {
-            return
+        if object["update"] != nil {
+            guard let tickerUpdateResponse = try? JSONDecoder().decode(TickerUpdateResponse.self, from: jsonData) else {
+                return
+            }
+            updateToLastestTicker(tickerUpdateResponse: tickerUpdateResponse)
+        } else {
+            guard let tickerResponse = try? JSONDecoder().decode(TickerResponse.self, from: jsonData) else {
+                return
+            }
+            updateTickerViewModelChannelId(tickerResponse: tickerResponse)
         }
-        
+    }
+    
+    func updateToLastestTicker(tickerUpdateResponse: TickerUpdateResponse) {
+        NotificationCenter.default.post(name: Notification.Name.didReceiveTickerUpdate, object: self, userInfo: [Notification.Name.didReceiveTickerUpdate: tickerUpdateResponse])
+    }
+    
+    func updateTickerViewModelChannelId(tickerResponse: TickerResponse) {
         for (_, tickerViewModel) in tickerViewModels.enumerated() {
-            if tickerViewModel.ticker.tradingPairId == tickerResponse.tradingPairId {
-                print(tickerResponse)
+            if tickerViewModel.channelId == nil, tickerViewModel.ticker.tradingPairId == tickerResponse.tradingPairId {
+                tickerViewModel.updateChannelId(channelId: tickerResponse.channelId)
                 break
             }
         }
@@ -60,7 +77,6 @@ extension MarketTickerViewControllerViewModel {
 class MarketTickerViewControllerViewModelBuilder {
     
     func buildViewModel(tickerViewModels: [TickerViewModel]) -> MarketTickerViewControllerViewModel {
-        // TODO: TickerViewModel
         return MarketTickerViewControllerViewModel(tickerViewModels: tickerViewModels)
     }
     

@@ -19,6 +19,8 @@ struct MarketTickerPageContentTableViewCellViewModel: MarketTickerPageContentTab
 class MarketTickerPageContentTableViewCellViewModelBuilder {
     
     func buildViewModel(tickerViewModel: TickerViewModel) -> MarketTickerPageContentTableViewCellViewModel {
+        addNotificationObserver()
+        
         let ticker = tickerViewModel.ticker
         let tradingTitleString = tickerViewModel.currency
         let tradingPairString = ticker.tradingPairId
@@ -31,6 +33,14 @@ class MarketTickerPageContentTableViewCellViewModelBuilder {
         let fluctuationPercentageString = String(format: "%@%.2f %%", fluctuationSymbol, fabs(fluctuationPercentage))
         
         return MarketTickerPageContentTableViewCellViewModel(tradingTitleString: tradingTitleString, tradingPairString: tradingPairString, lastTradingPriceString: lastTradingPriceString, fluctuationPercentageString: fluctuationPercentageString)
+    }
+    
+    private func addNotificationObserver() {
+        NotificationCenter.default.addObserver(forName: Notification.Name.didReceiveTickerUpdate, object: nil, queue: OperationQueue.main) { (notification) in
+            if let tickerUpdateResponse = notification.userInfo?[Notification.Name.didReceiveTickerUpdate] as? TickerUpdateResponse {
+                print(tickerUpdateResponse)
+            }
+        }
     }
     
 }

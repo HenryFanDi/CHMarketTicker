@@ -46,6 +46,7 @@
 		D8F8038A205E25F500F253E6 /* TickerResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8F80389205E25F500F253E6 /* TickerResponse.swift */; };
 		D8F8038C205E32BE00F253E6 /* TickerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8F8038B205E32BE00F253E6 /* TickerViewModel.swift */; };
 		D8F8038E205E34B900F253E6 /* Ticker.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8F8038D205E34B900F253E6 /* Ticker.swift */; };
+		D8F80390205E3FEB00F253E6 /* TickerUpdateResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8F8038F205E3FEB00F253E6 /* TickerUpdateResponse.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -113,6 +114,7 @@
 		D8F80389205E25F500F253E6 /* TickerResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TickerResponse.swift; sourceTree = "<group>"; };
 		D8F8038B205E32BE00F253E6 /* TickerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TickerViewModel.swift; sourceTree = "<group>"; };
 		D8F8038D205E34B900F253E6 /* Ticker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Ticker.swift; sourceTree = "<group>"; };
+		D8F8038F205E3FEB00F253E6 /* TickerUpdateResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TickerUpdateResponse.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -446,6 +448,7 @@
 				D8F8037E205DE7FD00F253E6 /* TaskTimerManager.swift */,
 				D8F80380205DFB0000F253E6 /* TickerRequest.swift */,
 				D8F80389205E25F500F253E6 /* TickerResponse.swift */,
+				D8F8038F205E3FEB00F253E6 /* TickerUpdateResponse.swift */,
 			);
 			path = WebSocket;
 			sourceTree = "<group>";
@@ -677,6 +680,7 @@
 				D8F8038C205E32BE00F253E6 /* TickerViewModel.swift in Sources */,
 				D85F1E26205CB5F400262F22 /* MarketTickerPagePresenter.swift in Sources */,
 				D85F1E06205BFA2B00262F22 /* CHAPIClient.swift in Sources */,
+				D8F80390205E3FEB00F253E6 /* TickerUpdateResponse.swift in Sources */,
 				D85F1E1A205C9A7800262F22 /* MarketTickerViewControllerViewModel.swift in Sources */,
 				D85F1E08205BFE8B00262F22 /* CHAPIManager.swift in Sources */,
 				D8F8037F205DE7FD00F253E6 /* TaskTimerManager.swift in Sources */,
