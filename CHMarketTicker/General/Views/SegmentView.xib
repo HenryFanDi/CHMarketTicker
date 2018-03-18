@@ -22,17 +22,16 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cmR-bo-6g9" userLabel="Bottom Line">
-                    <rect key="frame" x="8" y="43" width="64" height="2"/>
+                    <rect key="frame" x="8" y="44" width="64" height="1"/>
                     <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="2" id="K7w-6b-sCO"/>
+                        <constraint firstAttribute="height" constant="1" id="K7w-6b-sCO"/>
                     </constraints>
                 </view>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="COB" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IdA-Yh-xlP" userLabel="Title Label">
                     <rect key="frame" x="0.0" y="12" width="80" height="20"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="20" id="TRf-Tw-vCC"/>
-                        <constraint firstAttribute="width" constant="80" id="rpY-gJ-rGj"/>
                     </constraints>
                     <fontDescription key="fontDescription" name="GillSans" family="Gill Sans" pointSize="17"/>
                     <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
