@@ -9,21 +9,23 @@
 import UIKit
 
 protocol MarketTickerPageInteractor: class {
-    func getMarketTickers()
+    func getMarketTickerViewModels() -> [TickerViewModel]
 }
 
 class MarketTickerPageDefaultInteractor: MarketTickerPageInteractor {
     
-    var presenter: MarketTickerPagePresenterInteract!
+    private var tickerViewModels: [TickerViewModel]
+    
+    // MARK: - Initialize
+    
+    required init(tickerViewModels: [TickerViewModel]) {
+        self.tickerViewModels = tickerViewModels
+    }
     
     // MARK: - MarketTickerPageInteractor
     
-    func getMarketTickers() {
-        CHAPIManager.shared.getMarketTickers(success: { [unowned self] (tickers) in
-            self.presenter.didGetMarketTickersSuccess(tickers: tickers)
-            }, failure: { [unowned self] () in
-                self.presenter.didGetMarketTickersFailure()
-        })
+    func getMarketTickerViewModels() -> [TickerViewModel] {
+        return tickerViewModels
     }
     
 }

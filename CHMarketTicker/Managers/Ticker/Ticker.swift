@@ -8,9 +8,7 @@
 
 import UIKit
 
-struct Ticker: Codable {
-    
-    // Default
+struct Ticker: Serializable {
     
     var tradingPairId: String
     var timestamp: Int
@@ -32,16 +30,6 @@ struct Ticker: Codable {
         case lastTradePrice = "last_trade_price"
         case highestBid = "highest_bid"
         case lowestAsk = "lowest_ask"
-    }
-    
-    // Custom
-    
-    var currency: String {
-        return tradingPairId.components(separatedBy: "-").first ?? ""
-    }
-    
-    var pairCurrency: String {
-        return tradingPairId.components(separatedBy: "-").last ?? ""
     }
     
 }

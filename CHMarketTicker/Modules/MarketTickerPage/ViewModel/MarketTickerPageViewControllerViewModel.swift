@@ -9,20 +9,18 @@
 import UIKit
 
 struct MarketTickerPageViewControllerViewModel {
-    
     private(set) var marketTickerPageContentViewControllers: [MarketTickerPageContentViewController]
-    
 }
 
 class MarketTickerPageViewControllerViewModelBuilder {
     
-    func buildViewModel(tickers: [Ticker]) -> MarketTickerPageViewControllerViewModel {
+    func buildViewModel(tickerViewModels: [TickerViewModel]) -> MarketTickerPageViewControllerViewModel {
         var marketTickerPageContentViewControllers = [MarketTickerPageContentViewController]()
         
         // Separating to different pair currencies
         var pairCurrencies = [String]()
-        for i in 0..<tickers.count {
-            let pairCurrency = tickers[i].pairCurrency
+        for i in 0..<tickerViewModels.count {
+            let pairCurrency = tickerViewModels[i].pairCurrency
             if !pairCurrencies.contains(pairCurrency) {
                 pairCurrencies.append(pairCurrency)
                 continue
@@ -31,14 +29,14 @@ class MarketTickerPageViewControllerViewModelBuilder {
         
         // Building marketTickerPageContentViewController by different pair currencies
         for i in 0..<pairCurrencies.count {
-            var tickersOfPairCurrency = [Ticker]()
-            tickers.forEach({ (ticker) in
-                if pairCurrencies[i].description == ticker.pairCurrency {
-                    tickersOfPairCurrency.append(ticker)
+            var tickerViewModelsOfPairCurrency = [TickerViewModel]()
+            tickerViewModels.forEach({ (tickerViewModel) in
+                if pairCurrencies[i].description == tickerViewModel.pairCurrency {
+                    tickerViewModelsOfPairCurrency.append(tickerViewModel)
                 }
             })
             
-            let marketTickerPageContentViewController = MarketTickerPageContentDefaultBuilder().buildMarketTickerPageContentModule(pageIndex: i, tickersOfPairCurrency: tickersOfPairCurrency)
+            let marketTickerPageContentViewController = MarketTickerPageContentDefaultBuilder().buildMarketTickerPageContentModule(pageIndex: i, tickerViewModelsOfPairCurrency: tickerViewModelsOfPairCurrency)
             marketTickerPageContentViewControllers.append(marketTickerPageContentViewController)
         }
         

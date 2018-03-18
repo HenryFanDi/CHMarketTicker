@@ -22,14 +22,38 @@ class MarketTickerPageContentDefaultPresenter: MarketTickerPageContentPresenter 
     required init(view: MarketTickerPageContentScreen, interactor: MarketTickerPageContentInteractor) {
         self.view = view
         self.interactor = interactor
+        
+        addNotificationObserver()
+    }
+    
+    // MARK: - Lifecycle
+    
+    deinit {
+        removeNotificationObserver()
     }
     
     // MARK: - MarketTickerPageContentPresenter
     
     func loadMarketTickerPageContent() {
+        buildMarketTickerPageContent()
+    }
+    
+    // MARK: - Private
+    
+    private func addNotificationObserver() {
+        NotificationCenter.default.addObserver(forName: Notification.Name.didReceiveTickerUpdateUpdateLayout, object: nil, queue: OperationQueue.main) { [unowned self] (notification) in
+            self.buildMarketTickerPageContent()
+        }
+    }
+    
+    private func removeNotificationObserver() {
+        NotificationCenter.default.removeObserver(self)
+    }
+    
+    private func buildMarketTickerPageContent() {
         let pageIndex = interactor.getPageIndex()
-        let tickersOfCurrency = interactor.getTickersOfPairCurrency()
-        let viewModel = MarketTickerPageContentViewControllerViewModelBuilder().buildViewModel(pageIndex: pageIndex, tickersOfCurrency: tickersOfCurrency)
+        let tickerViewModelsOfPairCurrency = interactor.getTickerViewModelsOfPairCurrency()
+        let viewModel = MarketTickerPageContentViewControllerViewModelBuilder().buildViewModel(pageIndex: pageIndex, tickerViewModelsOfPairCurrency: tickerViewModelsOfPairCurrency)
         view?.configureMarketTickerPageContent(viewModel: viewModel)
     }
     

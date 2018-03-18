@@ -12,11 +12,6 @@ protocol MarketTickerPagePresenter: class {
     func loadMarketTickerPage()
 }
 
-protocol MarketTickerPagePresenterInteract: class {
-    func didGetMarketTickersSuccess(tickers: [Ticker])
-    func didGetMarketTickersFailure()
-}
-
 class MarketTickerPageDefaultPresenter: MarketTickerPagePresenter {
     
     private let view: MarketTickerPageScreen
@@ -32,27 +27,9 @@ class MarketTickerPageDefaultPresenter: MarketTickerPagePresenter {
     // MARK: - MarketTickerPagePresenter
     
     func loadMarketTickerPage() {
-        interactor.getMarketTickers()
-    }
-    
-}
-
-// MARK: - MarketTickerPagePresenterInteract
-
-extension MarketTickerPageDefaultPresenter: MarketTickerPagePresenterInteract {
-    
-    func didGetMarketTickersSuccess(tickers: [Ticker]) {
-        print("didGetMarketTickersSuccess")
-        let viewModel = MarketTickerPageViewControllerViewModelBuilder().buildViewModel(tickers: tickers)
-        
-        DispatchQueue.main.async { [unowned self] () in
-            self.view.configureMarketTickerPage(viewModel: viewModel)
-        }
-    }
-    
-    func didGetMarketTickersFailure() {
-        // TODO: Error handling
-        print("didGetMarketTickersFailure")
+        let tickerViewModels = interactor.getMarketTickerViewModels()
+        let viewModel = MarketTickerPageViewControllerViewModelBuilder().buildViewModel(tickerViewModels: tickerViewModels)
+        view.configureMarketTickerPage(viewModel: viewModel)
     }
     
 }

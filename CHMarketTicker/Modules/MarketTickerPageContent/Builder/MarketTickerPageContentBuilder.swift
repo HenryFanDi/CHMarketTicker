@@ -9,14 +9,14 @@
 import UIKit
 
 protocol MarketTickerPageContentBuilder: class {
-    func buildMarketTickerPageContentModule(pageIndex: Int, tickersOfPairCurrency: [Ticker]) -> MarketTickerPageContentViewController
+    func buildMarketTickerPageContentModule(pageIndex: Int, tickerViewModelsOfPairCurrency: [TickerViewModel]) -> MarketTickerPageContentViewController
 }
 
 class MarketTickerPageContentDefaultBuilder: MarketTickerPageContentBuilder {
     
-    func buildMarketTickerPageContentModule(pageIndex: Int, tickersOfPairCurrency: [Ticker]) -> MarketTickerPageContentViewController {
+    func buildMarketTickerPageContentModule(pageIndex: Int, tickerViewModelsOfPairCurrency: [TickerViewModel]) -> MarketTickerPageContentViewController {
         let viewController = MarketTickerPageContentViewController(nibName: MarketTickerPageContentViewController.identifier, bundle: nil)
-        let interactor = MarketTickerPageContentDefaultInteractor(pageIndex: pageIndex, tickersOfPairCurrency: tickersOfPairCurrency)
+        let interactor = MarketTickerPageContentDefaultInteractor(pageIndex: pageIndex, tickerViewModelsOfPairCurrency: tickerViewModelsOfPairCurrency)
         let presenter = MarketTickerPageContentDefaultPresenter(view: viewController, interactor: interactor)
         viewController.presenter = presenter
         return viewController
