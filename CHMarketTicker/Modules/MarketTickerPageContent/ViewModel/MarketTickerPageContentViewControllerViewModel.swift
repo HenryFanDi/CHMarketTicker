@@ -21,6 +21,7 @@ class MarketTickerPageContentViewControllerViewModelBuilder {
             let cellViewModel = MarketTickerPageContentTableViewCellViewModelBuilder().buildViewModel(tickerViewModel: tickerViewModel)
             cellViewModels.append(cellViewModel)
         }
+        cellViewModels.sort{ $0.tradingTitleString < $1.tradingTitleString }
         return MarketTickerPageContentViewControllerViewModel(pageIndex: pageIndex, cellViewModels: cellViewModels)
     }
     

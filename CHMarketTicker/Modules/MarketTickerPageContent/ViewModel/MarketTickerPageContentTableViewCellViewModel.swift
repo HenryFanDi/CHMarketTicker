@@ -13,12 +13,13 @@ struct MarketTickerPageContentTableViewCellViewModel: MarketTickerPageContentTab
     private(set) var tradingPairString: String
     private(set) var lastTradingPriceString: String
     private(set) var fluctuationPercentageString: String
+    private(set) var fluctuationPercentageStringColor: UIColor
 }
 
 class MarketTickerPageContentTableViewCellViewModelBuilder {
     
     func buildViewModel(tickerViewModel: TickerViewModel) -> MarketTickerPageContentTableViewCellViewModel {
-        return MarketTickerPageContentTableViewCellViewModel(tradingTitleString: tickerViewModel.tradingTitleString, tradingPairString: tickerViewModel.tradingPairString, lastTradingPriceString: tickerViewModel.lastTradingPriceString, fluctuationPercentageString: tickerViewModel.fluctuationPercentageString)
+        return MarketTickerPageContentTableViewCellViewModel(tradingTitleString: tickerViewModel.tradingTitleString, tradingPairString: tickerViewModel.tradingPairString, lastTradingPriceString: tickerViewModel.lastTradingPriceString, fluctuationPercentageString: tickerViewModel.fluctuationPercentageString, fluctuationPercentageStringColor: tickerViewModel.fluctuationPercentageStringColor)
     }
     
 }
