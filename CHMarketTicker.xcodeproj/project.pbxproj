@@ -171,8 +171,6 @@
 				D8BFC75F205BF19F00A144D4 /* View */,
 				D8BFC761205BF1B100A144D4 /* ViewModel */,
 				D8BFC763205BF1CE00A144D4 /* Presenter */,
-				D8BFC762205BF1C500A144D4 /* Interactor */,
-				D8BFC760205BF1AA00A144D4 /* Router */,
 			);
 			path = MarketTicker;
 			sourceTree = "<group>";
@@ -359,26 +357,12 @@
 			path = View;
 			sourceTree = "<group>";
 		};
-		D8BFC760205BF1AA00A144D4 /* Router */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Router;
-			sourceTree = "<group>";
-		};
 		D8BFC761205BF1B100A144D4 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
 				D85F1E19205C9A7800262F22 /* MarketTickerViewControllerViewModel.swift */,
 			);
 			path = ViewModel;
-			sourceTree = "<group>";
-		};
-		D8BFC762205BF1C500A144D4 /* Interactor */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Interactor;
 			sourceTree = "<group>";
 		};
 		D8BFC763205BF1CE00A144D4 /* Presenter */ = {
@@ -426,10 +410,18 @@
 			isa = PBXGroup;
 			children = (
 				D85F1E0B205C070800262F22 /* API */,
+				D8F80379205D13F600F253E6 /* Data */,
+			);
+			path = Managers;
+			sourceTree = "<group>";
+		};
+		D8F80379205D13F600F253E6 /* Data */ = {
+			isa = PBXGroup;
+			children = (
 				D85F1E09205C03A700262F22 /* Ticker.swift */,
 				D85F1E0C205C076C00262F22 /* TickerManager.swift */,
 			);
-			path = Managers;
+			path = Data;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -575,10 +567,12 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-CHMarketTicker/Pods-CHMarketTicker-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/Starscream/Starscream.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Starscream.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;

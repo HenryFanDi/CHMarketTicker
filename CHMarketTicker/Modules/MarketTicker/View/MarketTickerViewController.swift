@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Starscream
 
 protocol MarketTickerScreen: class {
     func configureMarketTicker(viewModel: MarketTickerViewControllerViewModel)
@@ -17,6 +18,8 @@ class MarketTickerViewController: UIViewController {
     var presenter: MarketTickerPresenter!
     
     fileprivate var viewModel: MarketTickerViewControllerViewModel!
+    
+    fileprivate var socket = WebSocket(url: URL(string: "wss://feed.cobinhood.com/ws")!)
     
     @IBOutlet private weak var segmentBackgroundView: UIView!
     @IBOutlet private weak var pageViewControllerBackgroundView: UIView!
@@ -29,10 +32,18 @@ class MarketTickerViewController: UIViewController {
         presenter.loadMarketTicker()
         
         configureLayout()
+        
+        socket.delegate = self
+        socket.connect()
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
+    }
+    
+    deinit {
+        socket.disconnect(forceTimeout: 0)
+        socket.delegate = nil
     }
     
     // MARK: - Private
@@ -50,6 +61,28 @@ extension MarketTickerViewController: MarketTickerScreen {
     
     func configureMarketTicker(viewModel: MarketTickerViewControllerViewModel) {
         self.viewModel = viewModel
+    }
+    
+}
+
+// MARK: - WebSocketDelegate
+
+extension MarketTickerViewController: WebSocketDelegate {
+    
+    func websocketDidConnect(socket: WebSocketClient) {
+        print("websocketDidConnect")
+    }
+    
+    func websocketDidDisconnect(socket: WebSocketClient, error: Error?) {
+        print("websocketDidDisconnect")
+    }
+    
+    func websocketDidReceiveMessage(socket: WebSocketClient, text: String) {
+        print("websocketDidReceiveMessage")
+    }
+    
+    func websocketDidReceiveData(socket: WebSocketClient, data: Data) {
+        print("websocketDidReceiveData")
     }
     
 }
