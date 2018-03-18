@@ -1,5 +1,5 @@
 //
-//  CHAPIRouter.swift
+//  APIRouter.swift
 //  CHMarketTicker
 //
 //  Created by HenryFan on 16/3/2018.
@@ -9,7 +9,7 @@
 import UIKit
 import Alamofire
 
-enum CHAPIRouter: URLRequestConvertible {
+enum APIRouter: URLRequestConvertible {
     
     case getMarketTickers()
     
@@ -32,7 +32,7 @@ enum CHAPIRouter: URLRequestConvertible {
     // MARK: - URLRequestConvertible
     
     func asURLRequest() throws -> URLRequest {
-        let url = try CHAPIRouter.baseURLString.asURL()
+        let url = try APIRouter.baseURLString.asURL()
         
         var urlRequest = URLRequest(url: url.appendingPathComponent(path))
         urlRequest.httpMethod = method.rawValue

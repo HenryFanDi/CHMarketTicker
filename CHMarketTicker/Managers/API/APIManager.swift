@@ -1,5 +1,5 @@
 //
-//  CHAPIManager.swift
+//  APIManager.swift
 //  CHMarketTicker
 //
 //  Created by HenryFan on 16/3/2018.
@@ -12,21 +12,21 @@ protocol ManagerProtocol {
     func initWithResponseObject(responseObject: Any) -> Any?
 }
 
-class CHAPIManager {
+class APIManager {
     
     // MARK: - Singleton Pattern
     
-    static let shared = CHAPIManager()
+    static let shared = APIManager()
     
     // MARK: - Public
     
     // GET
     
     func getMarketTickers(success: @escaping (_ tickers: [Ticker]) -> (), failure: @escaping () -> ()) {
-        CHAPIClient.shared.fetch(request: CHAPIRouter.getMarketTickers(), headers: [:]) { [unowned self] (result) in
+        APIClient.shared.fetch(request: APIRouter.getMarketTickers(), headers: [:]) { [unowned self] (result) in
             self.resultHandler(result: result, completion: { (responseValue) in
                 if let response = responseValue,
-                    let tickers = TickerManager().initWithResponseObject(responseObject: response) as? [Ticker] {
+                    let tickers = TickersManager().initWithResponseObject(responseObject: response) as? [Ticker] {
                     success(tickers)
                 } else {
                     failure()

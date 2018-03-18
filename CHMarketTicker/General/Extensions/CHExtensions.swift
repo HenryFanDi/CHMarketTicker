@@ -1,5 +1,5 @@
 //
-//  CHMarketTickerExtensions.swift
+//  CHExtensions.swift
 //  CHMarketTicker
 //
 //  Created by HenryFan on 16/3/2018.

@@ -1,5 +1,5 @@
 //
-//  TickerManager.swift
+//  TickersManager.swift
 //  CHMarketTicker
 //
 //  Created by HenryFan on 16/3/2018.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class TickerManager: ManagerProtocol {
+class TickersManager: ManagerProtocol {
     
     func initWithResponseObject(responseObject: Any) -> Any? {
         if let object = responseObject as? [String: AnyObject],

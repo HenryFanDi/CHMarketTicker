@@ -19,7 +19,7 @@ class MarketTickerDefaultInteractor: MarketTickerInteractor {
     // MARK: - MarketTickerInteractor
     
     func getMarketTickers() {
-        CHAPIManager.shared.getMarketTickers(success: { [unowned self] (tickers) in
+        APIManager.shared.getMarketTickers(success: { [unowned self] (tickers) in
             self.presenter.didGetMarketTickersSuccess(tickers: tickers)
             }, failure: { [unowned self] () in
                 self.presenter.didGetMarketTickersFailure()

@@ -1,5 +1,5 @@
 //
-//  CHAPIClient.swift
+//  APIClient.swift
 //  CHMarketTicker
 //
 //  Created by HenryFan on 16/3/2018.
@@ -24,13 +24,13 @@ protocol CHAPIProtocol {
     func fetch(request: URLRequestConvertible, headers: [String: String]?, completion: @escaping (ResultType<Any>) -> ())
 }
 
-class CHAPIClient: CHAPIProtocol {
+class APIClient: CHAPIProtocol {
     
     private let sessionManager = Alamofire.SessionManager(configuration: URLSessionConfiguration.default)
     
     // MARK: - Singleton Pattern
     
-    static let shared = CHAPIClient()
+    static let shared = APIClient()
     
     // MARK: - Public
     
