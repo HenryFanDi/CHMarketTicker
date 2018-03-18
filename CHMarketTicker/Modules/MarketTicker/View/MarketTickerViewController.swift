@@ -31,10 +31,8 @@ class MarketTickerViewController: UIViewController {
         
         presenter.loadMarketTicker()
         
+        configureSocket()
         configureLayout()
-        
-        socket.delegate = self
-        socket.connect()
     }
     
     override func didReceiveMemoryWarning() {
@@ -47,6 +45,16 @@ class MarketTickerViewController: UIViewController {
     }
     
     // MARK: - Private
+    
+    private func configureSocket() {
+        socket.delegate = self
+        socket.connect()
+        
+        let task = TaskTimerManager.shared.createTaskTimer(repeatingInterval: 30) { [unowned self] () in
+            self.socket.connect()
+        }
+        TaskTimerManager.shared.startTaskTimer(task: task)
+    }
     
     private func configureLayout() {
         let marketTickerPageViewController = MarketTickerPageDefaultBuilder().buildMarketTickerPageModule()
@@ -74,7 +82,13 @@ extension MarketTickerViewController: WebSocketDelegate {
     }
     
     func websocketDidDisconnect(socket: WebSocketClient, error: Error?) {
-        print("websocketDidDisconnect")
+        if let e = error as? WSError {
+            print("websocket is disconnected: \(e.message)")
+        } else if let e = error {
+            print("websocket is disconnected: \(e.localizedDescription)")
+        } else {
+            print("websocket disconnected")
+        }
     }
     
     func websocketDidReceiveMessage(socket: WebSocketClient, text: String) {

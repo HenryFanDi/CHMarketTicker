@@ -40,6 +40,7 @@
 		D8BFC76F205BF31700A144D4 /* CHMarketTickerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8BFC76E205BF31700A144D4 /* CHMarketTickerExtensions.swift */; };
 		D8BFC771205BF3A400A144D4 /* MarketTickerBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8BFC770205BF3A400A144D4 /* MarketTickerBuilder.swift */; };
 		D8BFC774205BF64E00A144D4 /* CHAPIRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8BFC773205BF64E00A144D4 /* CHAPIRouter.swift */; };
+		D8F8037F205DE7FD00F253E6 /* TaskTimerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8F8037E205DE7FD00F253E6 /* TaskTimerManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -101,6 +102,7 @@
 		D8BFC76E205BF31700A144D4 /* CHMarketTickerExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CHMarketTickerExtensions.swift; sourceTree = "<group>"; };
 		D8BFC770205BF3A400A144D4 /* MarketTickerBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarketTickerBuilder.swift; sourceTree = "<group>"; };
 		D8BFC773205BF64E00A144D4 /* CHAPIRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CHAPIRouter.swift; sourceTree = "<group>"; };
+		D8F8037E205DE7FD00F253E6 /* TaskTimerManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskTimerManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -409,6 +411,7 @@
 		D8BFC772205BF62800A144D4 /* Managers */ = {
 			isa = PBXGroup;
 			children = (
+				D8F8037D205DE7EE00F253E6 /* WebSocket */,
 				D85F1E0B205C070800262F22 /* API */,
 				D8F80379205D13F600F253E6 /* Data */,
 			);
@@ -422,6 +425,14 @@
 				D85F1E0C205C076C00262F22 /* TickerManager.swift */,
 			);
 			path = Data;
+			sourceTree = "<group>";
+		};
+		D8F8037D205DE7EE00F253E6 /* WebSocket */ = {
+			isa = PBXGroup;
+			children = (
+				D8F8037E205DE7FD00F253E6 /* TaskTimerManager.swift */,
+			);
+			path = WebSocket;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -635,6 +646,7 @@
 				D85F1E06205BFA2B00262F22 /* CHAPIClient.swift in Sources */,
 				D85F1E1A205C9A7800262F22 /* MarketTickerViewControllerViewModel.swift in Sources */,
 				D85F1E08205BFE8B00262F22 /* CHAPIManager.swift in Sources */,
+				D8F8037F205DE7FD00F253E6 /* TaskTimerManager.swift in Sources */,
 				D85F1E28205CB6EE00262F22 /* MarketTickerPageViewControllerViewModel.swift in Sources */,
 				D85F1E17205C979600262F22 /* MarketTickerPageViewController.swift in Sources */,
 				D85F1E2F205CBC6400262F22 /* MarketTickerPageContentBuilder.swift in Sources */,
