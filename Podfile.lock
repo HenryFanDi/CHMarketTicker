@@ -1,0 +1,18 @@
+PODS:
+  - Alamofire (4.7.0)
+  - JGProgressHUD (2.0.1)
+  - Starscream (3.0.4)
+
+DEPENDENCIES:
+  - Alamofire (~> 4.7)
+  - JGProgressHUD
+  - Starscream (~> 3.0.2)
+
+SPEC CHECKSUMS:
+  Alamofire: 907e0a98eb68cdb7f9d1f541a563d6ac5dc77b25
+  JGProgressHUD: 63ad7d8850702a91625fb9ed8e94eab706c03d81
+  Starscream: f5da93fe6984c77b694366bf7299b7dc63a76f26
+
+PODFILE CHECKSUM: bd1c55dc5dce3fa4aaa6f8051bd6e03df1389706
+
+COCOAPODS: 1.4.0
