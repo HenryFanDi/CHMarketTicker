@@ -13,6 +13,7 @@ protocol MarketTickerPageContentTableViewCellPresentable {
     var tradingPairString: String { get }
     var lastTradingPriceString: String { get }
     var fluctuationPercentageString: String { get }
+    var fluctuationPercentageStringColor: UIColor { get }
 }
 
 class MarketTickerPageContentTableViewCell: UITableViewCell {
@@ -23,6 +24,7 @@ class MarketTickerPageContentTableViewCell: UITableViewCell {
             tradingPairLabel.text = viewModel.tradingPairString
             lastTradingPriceLabel.text = viewModel.lastTradingPriceString
             fluctuationPercentageLabel.text = viewModel.fluctuationPercentageString
+            fluctuationPercentageLabel.textColor = viewModel.fluctuationPercentageStringColor
         }
     }
     

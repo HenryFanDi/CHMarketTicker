@@ -16,6 +16,7 @@ class TickerViewModel {
     private(set) var tradingPairString: String
     private(set) var lastTradingPriceString: String
     private(set) var fluctuationPercentageString: String
+    private(set) var fluctuationPercentageStringColor: UIColor
     
     var tradingTitleString: String {
         return currency
@@ -37,11 +38,12 @@ class TickerViewModel {
     
     // MARK: - Initialize
     
-    init(ticker: Ticker, tradingPairString: String, lastTradingPriceString: String, fluctuationPercentageString: String) {
+    init(ticker: Ticker, tradingPairString: String, lastTradingPriceString: String, fluctuationPercentageString: String, fluctuationPercentageStringColor: UIColor) {
         self.ticker = ticker
         self.tradingPairString = tradingPairString
         self.lastTradingPriceString = lastTradingPriceString
         self.fluctuationPercentageString = fluctuationPercentageString
+        self.fluctuationPercentageStringColor = fluctuationPercentageStringColor
         
         addNotificationObserver()
     }
@@ -90,7 +92,8 @@ class TickerViewModelBuilder {
         let tradingPairString = ticker.tradingPairId
         let lastTradingPriceString = ticker.lastTradePrice
         let fluctuationPercentageString = getFluctuationPercentageString(lastTradePrice: ticker.lastTradePrice, openOf24h: ticker.openOf24h)
-        return TickerViewModel(ticker: ticker, tradingPairString: tradingPairString, lastTradingPriceString: lastTradingPriceString, fluctuationPercentageString: fluctuationPercentageString)
+        let fluctuationPercentageStringColor = getFluctuationPercentageStringColor(lastTradePrice: ticker.lastTradePrice, openOf24h: ticker.openOf24h)
+        return TickerViewModel(ticker: ticker, tradingPairString: tradingPairString, lastTradingPriceString: lastTradingPriceString, fluctuationPercentageString: fluctuationPercentageString, fluctuationPercentageStringColor: fluctuationPercentageStringColor)
     }
     
     // MARK: - Public
@@ -98,10 +101,20 @@ class TickerViewModelBuilder {
     func getFluctuationPercentageString(lastTradePrice: String, openOf24h: String) -> String {
         let lastTradePrice: Float = Float(lastTradePrice) ?? 0.0
         let openOf24h: Float = Float(openOf24h) ?? 0.0
-        let fluctuationPercentage = ((lastTradePrice - openOf24h) / openOf24h) * 100
-        let fluctuationSymbol = fluctuationPercentage > 0.0 ? "+" : "-"
+        let fluctuationPercentage = lastTradePrice != 0.0 && openOf24h != 0.0 ? Float(((lastTradePrice - openOf24h) / openOf24h) * 100) : 0.0
+        let fluctuationSymbol = fluctuationPercentage != 0.0 ? fluctuationPercentage > 0.0 ? "+" : "-" : ""
         let fluctuationPercentageString = String(format: "%@%.2f %%", fluctuationSymbol, fabs(fluctuationPercentage))
         return fluctuationPercentageString
+    }
+    
+    func getFluctuationPercentageStringColor(lastTradePrice: String, openOf24h: String) -> UIColor {
+        let lastTradePrice: Float = Float(lastTradePrice) ?? 0.0
+        let openOf24h: Float = Float(openOf24h) ?? 0.0
+        let fluctuationPercentage = lastTradePrice != 0.0 && openOf24h != 0.0 ? Float(((lastTradePrice - openOf24h) / openOf24h) * 100) : 0.0
+        let greenColor = UIColor(red: 17.0/255.0, green: 218.0/255.0, blue: 154.0/255.0, alpha: 1.0)
+        let redColor = UIColor(red: 218.0/255.0, green: 83.0/255.0, blue: 60.0/255.0, alpha: 1.0)
+        let fluctuationPercentageStringColor = fluctuationPercentage > 0.0 ? greenColor : redColor
+        return fluctuationPercentageStringColor
     }
     
 }
